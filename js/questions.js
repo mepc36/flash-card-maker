@@ -62,7 +62,8 @@ window.DECKS = [
       {
         question: "How do you test a voice agent end-to-end before release?",
         answer:
-          "- Call the agent & assess task completion, alignment, & convo flow\n"
+          "- Call the agent\n" +
+          "- Assess task completion, alignment, & convo flow\n"
       },
       {
         question: "What from your eval goes on my roadmap?",
