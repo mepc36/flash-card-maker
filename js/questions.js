@@ -30,61 +30,53 @@ window.DECKS = [
         question: "What do you do in the week before a release?",
         answer:
           "1. Lock testing inputs (transcripts, etc.)\n" +
-          "2. AUTOMATED evals on baseline and candidate models (WER)\n" +
-          "3. MANUAL review of baseline & candidate outputs (pairwise preference)\n" +
-          "4. Give product release notes with metrics\n" +
-          "5. Prepare a rollback plan"
+          "2. Run automated (WER) & manual tests (pairwise)\n" +
+          "3. Give product release notes with metrics\n" +
+          "4. Prepare a rollback plan"
       },
       {
         question: "How do you tell a real regression from noise?",
         answer:
-          "- Get the standard error by running multiple times with different seeds\n" +
-          "- Use t-stat and p val to calculate probability that the delta is random\n" +
-          "- Low P means don't ship"
+          "- Get standard error\n" +
+          "- Use p val to find out if delta is random\n"
       },
       {
         question: "How would you eval a model you didn't build?",
         answer:
           "- Build a golden dataset from prod logs\n" +
-          "- AUTOMATED evals like WER to set a floor\n" +
-          "- MANUAL evals for dimensions like likeability"
+          "- DO AUTOMATED & MANUAL\n"
       },
       {
         question: "How do you decide go or no-go on a model?",
         answer:
           "- Set a threshold with product before eval\n" +
-          "- AUTOMATED metrics on candidate and baseline models\n" +
-          "- MANUAL metrics on candidate and baseline models\n" +
+          "- DO AUTOMATED & MANUAL\n" +
           "- Assess tradeoffs and probability if there's a regression in any dimension"
       },
       {
         question: "How would you triage a bug in prod?",
         answer:
-          "- Rely on logs & monitoring" +
-          "- Re-run failing calls through eval harness to reproduce\n" +
-          "- Sort failures by layer (STT vs. LLM, etc.)\n"
+          "- Re-run failing calls through eval harness to reproduce\n"
       },
       {
         question: "How do you test a voice agent end-to-end before release?",
         answer:
           "- A simulated caller dials the agent with a script and a goal\n" +
-          "- We score task/alignment/convo flow (T.A.F.)\n" +
-          "- Humans spot-check call samples"
+          "- We score task/alignment/convo flow (T.A.F.)\n"
       },
       {
         question: "What from your eval goes on my roadmap?",
         answer:
-          "- Every failed call in prod gets tallied\n" +
-          "- Weight each category by cost\n" +
+          "- Weigh common failure modes by cost\n" +
           "-- EXAMPLE: 50 high latency calls x SLA credits"
       },
       {
         question:
           "What do you do when the research team says you can ship, but your own gate says hold?",
         answer:
-          "- Re-do my results to make sure they're correct\n" +
+          "- Re-do eval\n" +
           "- Show Product the specific calls that are failing\n" +
-          "- Have a rollback plan either way"
+          "- Have a rollback plan"
       },
     ]
   },
@@ -93,15 +85,15 @@ window.DECKS = [
     cards: [
       {
         question: "What is sample variance in plain English?",
-        answer: "How spread out the values in one set of runs are"
+        answer: "The spread of values in a set"
       },
       {
         question: "What is standard error in plain English?",
-        answer: "How much the average of one set of runs would move if you re-ran the whole set"
+        answer: "How much a set's mean would move on a re-run"
       },
       {
         question: "What is a t-test in plain English?",
-        answer: "Checks whether the gap between two sets' averages is big compared to their standard error"
+        answer: "The difference between two means divided by its standard error"
       },
       {
         question: "What's the mathematical formula for a t-test?",
@@ -109,11 +101,11 @@ window.DECKS = [
       },
       {
         question: "What is a p value in plain English?",
-        answer: "If both sets came from the same process, how often the observed gap between their means would show up by luck"
+        answer: "The odds that the gap between two means is random"
       },
       {
         question: "How do you go from a t-stat to a p value?",
-        answer: "Look up t on a bell curve. The area past your t is p. Big t means tiny area, tiny p, real gap."
+        answer: "Look up t on a bell curve. The area past your t is p. Big t --> tiny p --> real gap."
       },
       {
         question: "What's the mathematical formula for a z score?",
