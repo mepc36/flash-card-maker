@@ -182,7 +182,7 @@ window.DECKS = [
         answer:
           "- Branded calling\n" +
           "- Call outcome dashboard\n" +
-          "- 2000 calls per second"
+          "- 2000 concurrent calls at peak"
       },
       {
         question: "Twilio: what were the deliverables?",
@@ -201,7 +201,7 @@ window.DECKS = [
         answer:
           "- Pickup rate --> 12%\n" +
           "- Agents see why every call failed\n" +
-          "- Concurrency of 2000 calls per second"
+          "- Load test at 2000 concurrent calls"
       }
     ]
   }
