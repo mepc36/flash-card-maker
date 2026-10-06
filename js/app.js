@@ -52,9 +52,14 @@
     return window.DECKS[state.deckIndex];
   }
 
-  function shuffledIndices(length) {
+  function orderedIndices(length) {
     var indices = [];
     for (var i = 0; i < length; i++) indices.push(i);
+    return indices;
+  }
+
+  function shuffledIndices(length) {
+    var indices = orderedIndices(length);
     // Fisher-Yates shuffle
     for (var j = indices.length - 1; j > 0; j--) {
       var k = Math.floor(Math.random() * (j + 1));
@@ -67,7 +72,9 @@
 
   function restartDeck() {
     var deck = currentDeck();
-    state.order = shuffledIndices(deck.cards.length);
+    state.order = deck.randomShuffle
+      ? shuffledIndices(deck.cards.length)
+      : orderedIndices(deck.cards.length);
     state.position = 0;
     state.flipped = false;
     renderCard();

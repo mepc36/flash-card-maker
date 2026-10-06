@@ -1,5 +1,7 @@
 // Flash card data.
-// Each deck has a "label" (shown in the picker) and a "cards" array.
+// Each deck has a "label" (shown in the picker), a "randomShuffle" flag
+// (true = shuffle card order, false = read in the order listed below),
+// and a "cards" array.
 // Each card has "question" and "answer". Answer text uses "\n" for line
 // breaks so bullet structure is preserved exactly as written.
 //
@@ -8,6 +10,7 @@
 window.DECKS = [
   {
     label: "Deepgram (FAQ)",
+    randomShuffle: true,
     cards: [
       {
         question: "Tell me about yourself",
@@ -82,6 +85,7 @@ window.DECKS = [
   },
   {
     label: "Deepgram (statistics)",
+    randomShuffle: true,
     cards: [
       {
         question: "What is sample variance in plain English?",
@@ -115,6 +119,7 @@ window.DECKS = [
   },
   {
     label: "Deepgram (rapBot)",
+    randomShuffle: false,
     cards: [
       {
         question: "rapBot: what was the problem?",
@@ -130,6 +135,7 @@ window.DECKS = [
       {
         question: "rapBot: how did you measure accuracy?",
         answer:
+          "WER" +
           "transcript --> Lupe model --> STT --> transcript --> compare\n"
       },
       {
@@ -145,13 +151,13 @@ window.DECKS = [
       {
         question: "rapBot: what was the outcome?",
         answer:
-          "- Automated metrics picked candidates\n" +
-          "- Manual human tests picked the best candidate"
+          "- User retries for inaccurte transcripts dropped by 23%"
       }
     ]
   },
   {
     label: "Deepgram (Twilio)",
+    randomShuffle: false,
     cards: [
       {
         question: "Twilio: what was the problem?",
