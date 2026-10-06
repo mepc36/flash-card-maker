@@ -105,7 +105,7 @@ window.DECKS = [
       },
       {
         question: "How do you go from a t-stat to a p value?",
-        answer: "Look up t on a bell curve. The area past your t is p. Big t --> tiny p --> real gap."
+        answer: "Look up t on a bell curve. The area past your t is p. tiny p --> real gap."
       },
       {
         question: "What's the mathematical formula for a z score?",
@@ -114,23 +114,23 @@ window.DECKS = [
     ]
   },
   {
-    label: "Deepgram (use cases)",
+    label: "Deepgram (rapBot)",
     cards: [
       {
         question: "rapBot: what was the problem?",
-        answer: "- Did the voice clone get better or worse after each training run?"
+        answer: "- Did the voice clone get better or worse?"
       },
       {
         question: "rapBot: what was the rubric?",
         answer:
-          "- Accuracy, similarity, & latency\n"
+          "- Accuracy\n" +
+          "- Similarity\n" +
+          "- Latency\n"
       },
       {
         question: "rapBot: how did you measure accuracy?",
         answer:
-          "- WER\n" +
-          "--> transcript --> Lupe model --> STT --> transcript --> compare\n" +
-          "- Whisper and AWS to avoid STT lineage bias"
+          "transcript --> Lupe model --> STT --> transcript --> compare\n"
       },
       {
         question: "rapBot: how did you measure similarity?",
@@ -147,13 +147,18 @@ window.DECKS = [
         answer:
           "- Automated metrics picked candidates\n" +
           "- Manual human tests picked the best candidate"
-      },
+      }
+    ]
+  },
+  {
+    label: "Deepgram (Twilio)",
+    cards: [
       {
         question: "Twilio: what was the problem?",
         answer:
-          "- Pickup rate was bad\n" +
-          "- Visibility was null\n" +
-          "- Concurrency was low"
+          "- Pickup rates\n" +
+          "- Visibility\n" +
+          "- Concurrency"
       },
       {
         question: "Twilio: what was out of scope?",
@@ -162,29 +167,28 @@ window.DECKS = [
       {
         question: "Twilio: what was the user story?",
         answer:
-          "- As a Navient agent, I want borrowers to answer when I dial\n" +
-          "- I want to see the result of every call\n" +
-          "- I want to dial at peak without a capacity wall"
+          "- I want borrowers to answer\n" +
+          "- I want to see call result\n" +
+          "- I want less dropped calls at peak times"
       },
       {
         question: "Twilio: what were the acceptance criteria?",
         answer:
-          "- Every outbound call carries Navient's name\n" +
-          "- Every dial logs an outcome the agent can see\n" +
+          "- Branded calling\n" +
+          "- Call outcome dashboard\n" +
           "- 2000 calls per second"
       },
       {
         question: "Twilio: what were the deliverables?",
         answer:
-          "- Call outcome dashboard in Twilio Flex\n" +
-          "- 6 stateless microservices on AWS (a call state manager, etc.)"
+          "- Dashboard in Flex\n" +
+          "- 6 microservices"
       },
       {
         question: "Twilio: how did you evaluate it?",
         answer:
-          "- Dashboard of call outcomes\n" +
-          "- Manual QA\n" +
-          "- Automated load test of 2000 calls per second"
+          "- Manual QA calls\n" +
+          "- Automated load tests"
       },
       {
         question: "Twilio: what were the business outcomes?",
