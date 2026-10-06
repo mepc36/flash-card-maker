@@ -153,6 +153,48 @@ window.DECKS = [
     ]
   },
   {
+    label: "Deepgram (NBCU)",
+    randomShuffle: false,
+    cards: [
+      {
+        question: "NBCU: what was the problem?",
+        answer:
+          "- Human re-read HR agent answers every release\n" +
+          "- Regressions reached employees first"
+      },
+      {
+        question: "NBCU: what was the rubric?",
+        answer:
+          "- Accuracy\n" +
+          "- Faithfulness"
+      },
+      {
+        question: "NBCU: what was the dataset?",
+        answer:
+          "- Real HR questions + expected answers\n" +
+          "- Versioned CSV in cloud, handrolled dashboard"
+      },
+      {
+        question: "NBCU: how did you validate the judge?",
+        answer:
+          "- Human spot checks of random judged answers\n" +
+          "- Disagreements fixed the criteria"
+      },
+      {
+        question: "NBCU: how did the gate work?",
+        answer:
+          "- Suite runs in release pipeline, parallel\n" +
+          "- Fail blocks release, Slack webhook"
+      },
+      {
+        question: "NBCU: what were the business outcomes?",
+        answer:
+          "- 4 hrs QA saved per release\n" +
+          "- HR tier 1 response time down 10%"
+      }
+    ]
+  },
+  {
     label: "Deepgram (Twilio)",
     randomShuffle: false,
     cards: [
@@ -199,6 +241,43 @@ window.DECKS = [
           "- better pickup rate\n" +
           "- less retries\n" +
           "- less dropped calls"
+      }
+    ]
+  },
+  {
+    label: "Deepgram (HR Agent)",
+    randomShuffle: false,
+    cards: [
+      {
+        question: "HR Agent: what was the problem?",
+        answer:
+          "Bad answers were getting through to end users"
+      },
+      {
+        question: "HR Agent: what was the rubric?",
+        answer:
+          "- Accuracy\n" +
+          "- Faithfulness"
+      },
+      {
+        question: "HR Agent: what was the dataset?",
+        answer:
+          "- Real HR questions + expected answers\n"
+      },
+      {
+        question: "HR Agent: how did you validate the judge?",
+        answer:
+          "- Human spot checks of random judged answers\n"
+      },
+      {
+        question: "HR Agent: how did the gate work?",
+        answer:
+          "- GitHub action CI/CD job + webhook alerts in slack\n"
+      },
+      {
+        question: "HR Agent: what were the business outcomes?",
+        answer:
+          "- HR survey ratings rose .4"
       }
     ]
   }
