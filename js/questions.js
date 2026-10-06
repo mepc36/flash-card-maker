@@ -94,7 +94,7 @@ window.DECKS = [
       },
       {
         question: "What is a t-test in plain English?",
-        answer: "The difference between two means divided by its standard error"
+        answer: "Whether two means differ by more than random noise"
       },
       {
         question: "What's the mathematical formula for a t-test?",
