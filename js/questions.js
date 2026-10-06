@@ -7,7 +7,7 @@
 
 window.DECKS = [
   {
-    label: "FAQ Answers",
+    label: "Deepgram (FAQ)",
     cards: [
       {
         question: "Tell me about yourself",
@@ -85,6 +85,39 @@ window.DECKS = [
           "- Re-do my results to make sure they're correct\n" +
           "- Show Product the specific calls that are failing\n" +
           "- Have a rollback plan either way"
+      },
+    ]
+  },
+  {
+    label: "Deepgram (stats)",
+    cards: [
+      {
+        question: "What is sample variance in plain English?",
+        answer: "How spread out the values in one set of runs are"
+      },
+      {
+        question: "What is standard error in plain English?",
+        answer: "How much the average of one set of runs would move if you re-ran the whole set"
+      },
+      {
+        question: "What is a t-test in plain English?",
+        answer: "Checks whether the gap between two sets' averages is big compared to their standard error"
+      },
+      {
+        question: "What's the mathematical formula for a t-test?",
+        answer: "t = (mean_a - mean_b) / std_err_of_observed_gap_bw_means"
+      },
+      {
+        question: "What is a p value in plain English?",
+        answer: "If both sets came from the same process, how often the observed gap between their means would show up by luck"
+      },
+      {
+        question: "How do you go from a t-stat to a p value?",
+        answer: "Look up t on a bell curve. The area past your t is p. Big t means tiny area, tiny p, real gap."
+      },
+      {
+        question: "What's the mathematical formula for a z score?",
+        answer: "z = (value - mean) / std_dev"
       }
     ]
   }
