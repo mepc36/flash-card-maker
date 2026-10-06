@@ -164,7 +164,7 @@ window.DECKS = [
       },
       {
         question: "Twilio: what was out of scope?",
-        answer: "- Disputed and legal hold accounts"
+        answer: "- Legal hold accounts"
       },
       {
         question: "Twilio: what was the user story?",
