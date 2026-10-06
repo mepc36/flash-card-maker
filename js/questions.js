@@ -81,7 +81,7 @@ window.DECKS = [
     ]
   },
   {
-    label: "Deepgram (stats)",
+    label: "Deepgram (statistics)",
     cards: [
       {
         question: "What is sample variance in plain English?",
