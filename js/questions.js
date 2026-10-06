@@ -151,7 +151,7 @@ window.DECKS = [
       {
         question: "rapBot: what was the outcome?",
         answer:
-          "- User retries for inaccurte transcripts dropped by 23%"
+          "- Less user retries"
       }
     ]
   },
