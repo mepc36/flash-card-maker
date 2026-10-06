@@ -15,7 +15,7 @@ window.DECKS = [
       {
         question: "Tell me about yourself",
         answer:
-          "- Model eval engineer that builds systems to decide if a model ships\n"
+          "- Model eval engineer who decides if a model ships\n"
       },
       {
         question: "What are you looking for in your next role?",
@@ -27,7 +27,7 @@ window.DECKS = [
       },
       {
         question: "Why Deepgram?",
-        answer: "- eval voice clones at scale"
+        answer: "- eval speech models at scale"
       },
       {
         question: "What do you do in the week before a release?",
@@ -40,20 +40,17 @@ window.DECKS = [
       {
         question: "How do you tell a real regression from noise?",
         answer:
-          "- Get standard error\n" +
-          "- Use p val to find out if delta is random\n"
+          "- t-tests and p values"
       },
       {
         question: "How would you eval a model you didn't build?",
         answer:
-          "- Build a golden dataset from prod logs\n" +
-          "- DO AUTOMATED & MANUAL\n"
+          "- Build a golden dataset from prod logs\n"
       },
       {
         question: "How do you decide go or no-go on a model?",
         answer:
           "- Set a threshold with product before eval\n" +
-          "- DO AUTOMATED & MANUAL\n" +
           "- Assess tradeoffs and probability if there's a regression in any dimension"
       },
       {
@@ -64,8 +61,8 @@ window.DECKS = [
       {
         question: "How do you test a voice agent end-to-end before release?",
         answer:
-          "- A simulated caller dials the agent with a script and a goal\n" +
-          "- We score task/alignment/convo flow (T.A.F.)\n"
+          "- Call the agent with a script & goal\n" +
+          "- task completion/alignment/convo flow\n"
       },
       {
         question: "What from your eval goes on my roadmap?",
