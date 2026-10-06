@@ -100,5 +100,11 @@
     els.nextBtn.disabled = state.position === state.order.length - 1;
   }
 
-  document.addEventListener("DOMContentLoaded", init);
+  // app.js can load after DOMContentLoaded already fired (e.g. when
+  // injected dynamically for cache-busting), so check readyState first.
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
 })();
