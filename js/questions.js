@@ -199,9 +199,9 @@ window.DECKS = [
       {
         question: "Twilio: what were the business outcomes?",
         answer:
-          "- Pickup rate --> 12%\n" +
-          "- Agents see why every call failed\n" +
-          "- Load test at 2000 concurrent calls"
+          "- better pickup rate\n" +
+          "- less retries\n" +
+          "- less dropped calls"
       }
     ]
   }
