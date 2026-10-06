@@ -177,20 +177,18 @@ window.DECKS = [
         question: "Twilio: what were the acceptance criteria?",
         answer:
           "- Branded calling\n" +
-          "- Call outcome dashboard\n" +
-          "- 2000 concurrent calls at peak"
+          "- Dashboard\n" +
+          "- 2000 concurrent calls"
       },
       {
         question: "Twilio: what were the deliverables?",
         answer:
-          "- Dashboard in Flex\n" +
-          "- 6 microservices"
+          "- 6 microservices + Flex productization"
       },
       {
         question: "Twilio: how did you evaluate it?",
         answer:
-          "- Manual QA calls\n" +
-          "- Automated load tests"
+          "- Load tests and manual QA"
       },
       {
         question: "Twilio: what were the business outcomes?",
@@ -208,7 +206,7 @@ window.DECKS = [
       {
         question: "HR Agent: what was the problem?",
         answer:
-          "Bad answers were getting through to end users"
+          "Poor retrieval"
       },
       {
         question: "HR Agent: what was the rubric?",
@@ -234,7 +232,7 @@ window.DECKS = [
       {
         question: "HR Agent: what were the business outcomes?",
         answer:
-          "- HR survey ratings rose .4"
+          "- Survey ratings"
       }
     ]
   }
