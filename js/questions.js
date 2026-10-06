@@ -89,7 +89,7 @@ window.DECKS = [
       },
       {
         question: "What is standard error in plain English?",
-        answer: "How much a set's mean would move on a re-run"
+        answer: "How much a set's mean would vary when re-run"
       },
       {
         question: "What is a t-test in plain English?",
@@ -97,15 +97,15 @@ window.DECKS = [
       },
       {
         question: "What's the mathematical formula for a t-test?",
-        answer: "t = (mean_a - mean_b) / std_err_of_observed_gap_bw_means"
+        answer: "t = observed_gap / std_err"
       },
       {
         question: "What is a p value in plain English?",
         answer: "The odds that the gap between two means is random"
       },
       {
-        question: "How do you go from a t-stat to a p value?",
-        answer: "Look up t on a bell curve. The area past your t is p. tiny p --> real gap."
+        question: "How to go from t-stat to p value in plain English?",
+        answer: "Look up t on a bell curve. The area past your t is p."
       },
       {
         question: "What's the mathematical formula for a z score?",
@@ -118,34 +118,33 @@ window.DECKS = [
     randomShuffle: false,
     cards: [
       {
-        question: "rapBot: what was the problem?",
-        answer: "- Did the voice clone get better or worse?"
+        question: "What was the problem?",
+        answer: "- Eval relied on vibe checks"
       },
       {
-        question: "rapBot: what was the rubric?",
+        question: "What was the rubric?",
         answer:
           "- Accuracy\n" +
           "- Similarity\n" +
           "- Latency\n"
       },
       {
-        question: "rapBot: how did you measure accuracy?",
+        question: "How did you measure accuracy?",
         answer:
-          "WER" +
-          "transcript --> Lupe model --> STT --> transcript --> compare\n"
+          "transcript --> TTS (lupe) --> STT (whisper) --> transcript --> WER\n"
       },
       {
-        question: "rapBot: how did you measure similarity?",
-        answer: "- Users pick the real one out of 2 clips"
+        question: "How did you measure similarity?",
+        answer: "- Users pick the real Lupe out of 2 clips"
       },
       {
-        question: "rapBot: how did you measure latency?",
+        question: "How did you measure latency?",
         answer:
-          "- Moved inference from manual scaling to serverless GPUs\n" +
-          "- SSE let users keep working while songs generated"
+          "- Used DataDog span tags\n" +
+          "- FIXES: serverless + SSE"
       },
       {
-        question: "rapBot: what was the outcome?",
+        question: "What was the outcome?",
         answer:
           "- Less user retries"
       }
@@ -156,42 +155,42 @@ window.DECKS = [
     randomShuffle: false,
     cards: [
       {
-        question: "Twilio: what was the problem?",
+        question: "What was the problem?",
         answer:
           "- Pickup rates\n" +
           "- Visibility\n" +
           "- Concurrency"
       },
       {
-        question: "Twilio: what was out of scope?",
+        question: "What was out of scope?",
         answer: "- Legal hold accounts"
       },
       {
-        question: "Twilio: what was the user story?",
+        question: "What was the user story?",
         answer:
           "- I want borrowers to answer\n" +
           "- I want to see call result\n" +
           "- I want less dropped calls at peak times"
       },
       {
-        question: "Twilio: what were the acceptance criteria?",
+        question: "What were the acceptance criteria?",
         answer:
           "- Branded calling\n" +
           "- Dashboard\n" +
           "- 2000 concurrent calls"
       },
       {
-        question: "Twilio: what were the deliverables?",
+        question: "What were the deliverables?",
         answer:
           "- 6 microservices + Flex productization"
       },
       {
-        question: "Twilio: how did you evaluate it?",
+        question: "How did you evaluate it?",
         answer:
           "- Load tests and manual QA"
       },
       {
-        question: "Twilio: what were the business outcomes?",
+        question: "What were the business outcomes?",
         answer:
           "- better pickup rate\n" +
           "- less retries\n" +
@@ -204,35 +203,35 @@ window.DECKS = [
     randomShuffle: false,
     cards: [
       {
-        question: "HR Agent: what was the problem?",
+        question: "What was the problem?",
         answer:
-          "Poor retrieval"
+          "Wrong answers & hallucinations"
       },
       {
-        question: "HR Agent: what was the rubric?",
+        question: "What was the rubric?",
         answer:
           "- Accuracy\n" +
           "- Faithfulness"
       },
       {
-        question: "HR Agent: what was the dataset?",
+        question: "What was the dataset?",
         answer:
-          "- Real HR questions + expected answers\n"
+          "- Prompts from prod\n"
       },
       {
-        question: "HR Agent: how did you validate the judge?",
+        question: "How did you validate the judge?",
         answer:
           "- Human spot checks of judge answers\n"
       },
       {
-        question: "HR Agent: how did the gate work?",
+        question: "How did the gate work?",
         answer:
           "- GitHub action CI/CD job + slack alerts\n"
       },
       {
-        question: "HR Agent: what were the business outcomes?",
+        question: "What were the business outcomes?",
         answer:
-          "- Survey ratings"
+          "- Less human intervention"
       }
     ]
   }
