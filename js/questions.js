@@ -110,88 +110,88 @@ window.DECKS = [
       {
         question: "What's the mathematical formula for a z score?",
         answer: "z = (value - mean) / std_dev"
+      }
+    ]
+  },
+  {
+    label: "Deepgram (use cases)",
+    cards: [
+      {
+        question: "rapBot: what was the problem?",
+        answer: "- Did the voice clone get better or worse after each training run?"
       },
       {
-        label: "Deepgram (use cases)",
-        cards: [
-          {
-            question: "rapBot: what was the problem?",
-            answer: "- Did the voice clone get better or worse after each training run?"
-          },
-          {
-            question: "rapBot: what was the rubric?",
-            answer:
-              "- Accuracy, similarity, & latency\n"
-          },
-          {
-            question: "rapBot: how did you measure accuracy?",
-            answer:
-              "- WER\n" +
-              "--> transcript --> Lupe model --> STT --> transcript --> compare\n" +
-              "- Whisper and AWS to avoid STT lineage bias"
-          },
-          {
-            question: "rapBot: how did you measure similarity?",
-            answer: "- Users pick the real one out of 2 clips"
-          },
-          {
-            question: "rapBot: how did you measure latency?",
-            answer:
-              "- Moved inference from manual scaling to serverless GPUs\n" +
-              "- SSE let users keep working while songs generated"
-          },
-          {
-            question: "rapBot: what was the outcome?",
-            answer:
-              "- Automated metrics picked candidates\n" +
-              "- Manual human tests picked the best candidate"
-          },
-          {
-            question: "Twilio: what was the problem?",
-            answer:
-              "- Pickup rate was bad\n" +
-              "- Visibility was null\n" +
-              "- Concurrency was low"
-          },
-          {
-            question: "Twilio: what was out of scope?",
-            answer: "- Disputed and legal hold accounts"
-          },
-          {
-            question: "Twilio: what was the user story?",
-            answer:
-              "- As a Navient agent, I want borrowers to answer when I dial\n" +
-              "- I want to see the result of every call\n" +
-              "- I want to dial at peak without a capacity wall"
-          },
-          {
-            question: "Twilio: what were the acceptance criteria?",
-            answer:
-              "- Every outbound call carries Navient's name\n" +
-              "- Every dial logs an outcome the agent can see\n" +
-              "- 2000 calls per second"
-          },
-          {
-            question: "Twilio: what were the deliverables?",
-            answer:
-              "- Call outcome dashboard in Twilio Flex\n" +
-              "- 6 stateless microservices on AWS (a call state manager, etc.)"
-          },
-          {
-            question: "Twilio: how did you evaluate it?",
-            answer:
-              "- Dashboard of call outcomes\n" +
-              "- Manual QA\n" +
-              "- Automated load test of 2000 calls per second"
-          },
-          {
-            question: "Twilio: what were the business outcomes?",
-            answer:
-              "- Pickup rate --> 12%\n" +
-              "- Agents see why every call failed\n" +
-              "- Concurrency of 2000 calls per second"
-          }
-        ]
+        question: "rapBot: what was the rubric?",
+        answer:
+          "- Accuracy, similarity, & latency\n"
+      },
+      {
+        question: "rapBot: how did you measure accuracy?",
+        answer:
+          "- WER\n" +
+          "--> transcript --> Lupe model --> STT --> transcript --> compare\n" +
+          "- Whisper and AWS to avoid STT lineage bias"
+      },
+      {
+        question: "rapBot: how did you measure similarity?",
+        answer: "- Users pick the real one out of 2 clips"
+      },
+      {
+        question: "rapBot: how did you measure latency?",
+        answer:
+          "- Moved inference from manual scaling to serverless GPUs\n" +
+          "- SSE let users keep working while songs generated"
+      },
+      {
+        question: "rapBot: what was the outcome?",
+        answer:
+          "- Automated metrics picked candidates\n" +
+          "- Manual human tests picked the best candidate"
+      },
+      {
+        question: "Twilio: what was the problem?",
+        answer:
+          "- Pickup rate was bad\n" +
+          "- Visibility was null\n" +
+          "- Concurrency was low"
+      },
+      {
+        question: "Twilio: what was out of scope?",
+        answer: "- Disputed and legal hold accounts"
+      },
+      {
+        question: "Twilio: what was the user story?",
+        answer:
+          "- As a Navient agent, I want borrowers to answer when I dial\n" +
+          "- I want to see the result of every call\n" +
+          "- I want to dial at peak without a capacity wall"
+      },
+      {
+        question: "Twilio: what were the acceptance criteria?",
+        answer:
+          "- Every outbound call carries Navient's name\n" +
+          "- Every dial logs an outcome the agent can see\n" +
+          "- 2000 calls per second"
+      },
+      {
+        question: "Twilio: what were the deliverables?",
+        answer:
+          "- Call outcome dashboard in Twilio Flex\n" +
+          "- 6 stateless microservices on AWS (a call state manager, etc.)"
+      },
+      {
+        question: "Twilio: how did you evaluate it?",
+        answer:
+          "- Dashboard of call outcomes\n" +
+          "- Manual QA\n" +
+          "- Automated load test of 2000 calls per second"
+      },
+      {
+        question: "Twilio: what were the business outcomes?",
+        answer:
+          "- Pickup rate --> 12%\n" +
+          "- Agents see why every call failed\n" +
+          "- Concurrency of 2000 calls per second"
       }
     ]
   }
