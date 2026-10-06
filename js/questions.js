@@ -33,9 +33,9 @@ window.DECKS = [
         question: "What do you do in the week before a release?",
         answer:
           "1. Lock testing inputs (transcripts, etc.)\n" +
-          "2. Run automated (WER) & manual tests (pairwise)\n" +
-          "3. Give product release notes with metrics\n" +
-          "4. Prepare a rollback plan"
+          "2. Test automatically & manually\n" +
+          "3. Give product metrics\n" +
+          "4. Prep rollback plan"
       },
       {
         question: "How do you tell a real regression from noise?",
@@ -51,18 +51,17 @@ window.DECKS = [
         question: "How do you decide go or no-go on a model?",
         answer:
           "- Set a threshold with product before eval\n" +
-          "- Assess tradeoffs and probability if there's a regression in any dimension"
+          "- Assess tradeoffs if there's a regression"
       },
       {
         question: "How would you triage a bug in prod?",
         answer:
-          "- Re-run failing calls through eval harness to reproduce\n"
+          "- Reproduce it locally\n"
       },
       {
         question: "How do you test a voice agent end-to-end before release?",
         answer:
-          "- Call the agent with a script & goal\n" +
-          "- task completion/alignment/convo flow\n"
+          "- Call the agent & assess task completion, alignment, & convo flow\n"
       },
       {
         question: "What from your eval goes on my roadmap?",
