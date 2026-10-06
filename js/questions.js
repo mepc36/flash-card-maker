@@ -15,7 +15,7 @@ window.DECKS = [
       {
         question: "Tell me about yourself",
         answer:
-          "- Model eval engineer who decides if a model ships\n"
+          "- Eval engineer who decides if a model ships\n"
       },
       {
         question: "What are you looking for in your next role?",
@@ -40,7 +40,7 @@ window.DECKS = [
       {
         question: "How do you tell a real regression from noise?",
         answer:
-          "- t-tests and p values"
+          "- z-scores, t-tests, p vals"
       },
       {
         question: "How would you eval a model you didn't build?",
@@ -50,7 +50,8 @@ window.DECKS = [
       {
         question: "How do you decide go or no-go on a model?",
         answer:
-          "- Set a threshold with product before eval\n" +
+          "- Product sets threshold beforehand\n" +
+          "- Test automatically & manually" +
           "- Assess tradeoffs if there's a regression"
       },
       {
@@ -66,8 +67,7 @@ window.DECKS = [
       {
         question: "What from your eval goes on my roadmap?",
         answer:
-          "- Weigh common failure modes by cost\n" +
-          "-- EXAMPLE: 50 high latency calls x SLA credits"
+          "- The costliest problems\n"
       },
       {
         question:
@@ -93,11 +93,11 @@ window.DECKS = [
       },
       {
         question: "What is a t-test in plain English?",
-        answer: "Whether two means differ by more than random noise"
+        answer: "A test of whether two means differ by more than noise"
       },
       {
         question: "What's the mathematical formula for a t-test?",
-        answer: "t = observed_gap / std_err"
+        answer: "observed_gap / std_err"
       },
       {
         question: "What is a p value in plain English?",
@@ -105,11 +105,11 @@ window.DECKS = [
       },
       {
         question: "How to go from t-stat to p value in plain English?",
-        answer: "Look up t on a bell curve. The area past your t is p."
+        answer: "The area on a bell curve past your plotted t-stat"
       },
       {
         question: "What's the mathematical formula for a z score?",
-        answer: "z = (value - mean) / std_dev"
+        answer: "(value - mean) / std_dev"
       }
     ]
   },
@@ -140,13 +140,12 @@ window.DECKS = [
       {
         question: "How did you measure latency?",
         answer:
-          "- Used DataDog span tags\n" +
-          "- FIXES: serverless + SSE"
+          "- Used DataDog span tags\n"
       },
       {
         question: "What was the outcome?",
         answer:
-          "- Less user retries"
+          "- Fewer inference retries"
       }
     ]
   },
@@ -176,25 +175,24 @@ window.DECKS = [
         question: "What were the acceptance criteria?",
         answer:
           "- Branded calling\n" +
-          "- Dashboard\n" +
-          "- 2000 concurrent calls"
+          "- Flex Dashboard\n"
       },
       {
         question: "What were the deliverables?",
         answer:
-          "- 6 microservices + Flex productization"
+          "- 6 microservices in Twilio Flex"
       },
       {
         question: "How did you evaluate it?",
         answer:
-          "- Load tests and manual QA"
+          "- Load tests & manual QA"
       },
       {
         question: "What were the business outcomes?",
         answer:
-          "- better pickup rate\n" +
-          "- less retries\n" +
-          "- less dropped calls"
+          "- higher pickup rate\n" +
+          "- lower retries\n" +
+          "- lower dropped calls"
       }
     ]
   },
