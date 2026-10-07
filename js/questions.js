@@ -15,11 +15,12 @@ window.DECKS = [
       {
         question: "Tell me about yourself",
         answer:
-          "- Eval engineer who decides if a model ships\n"
+          "- Eval engineer who decides if a model ships\n" +
+          "- NBCU/rapBot/Waterfield"
       },
       {
         question: "What are you looking for in your next role?",
-        answer: "- To gate releases of speech models"
+        answer: "- Gate releases of speech models"
       },
       {
         question: "Why are you leaving NBCU?",
@@ -45,13 +46,14 @@ window.DECKS = [
       {
         question: "How would you eval a model you didn't build?",
         answer:
-          "- Build a golden dataset from prod logs\n"
+          "- Build a golden dataset from prod logs\n" +
+          "- Test automatically & manually\n"
       },
       {
         question: "How do you decide go or no-go on a model?",
         answer:
+          "- Test automatically & manually\n" +
           "- Product sets threshold beforehand\n" +
-          "- Test automatically & manually" +
           "- Assess tradeoffs if there's a regression"
       },
       {
@@ -94,7 +96,7 @@ window.DECKS = [
       },
       {
         question: "What is a t-test in plain English?",
-        answer: "A test of whether two means differ by more than noise"
+        answer: "Whether two means differ by more than noise"
       },
       {
         question: "What's the mathematical formula for a t-test?",
@@ -186,7 +188,8 @@ window.DECKS = [
       {
         question: "How did you evaluate it?",
         answer:
-          "- Load tests & manual QA"
+          "- Load tests" +
+          "- manual QA"
       },
       {
         question: "What were the business outcomes?",
@@ -204,7 +207,7 @@ window.DECKS = [
       {
         question: "What was the problem?",
         answer:
-          "Wrong answers & hallucinations"
+          "Wrong answers"
       },
       {
         question: "What was the rubric?",
