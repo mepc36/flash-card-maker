@@ -3,9 +3,11 @@
 (function () {
   var state = {
     deckIndex: 0,
-    order: [], // shuffled indices into current deck's cards
+    order: [], // indices into current deck's cards for the active session
     position: 0, // index into "order"
-    flipped: false
+    flipped: false,
+    results: {}, // cardIndex -> "correct" | "missed", reset per deck session
+    reviewMode: false // true while cycling through only missed cards
   };
 
   var els = {};
@@ -20,6 +22,10 @@
     els.prevBtn = document.getElementById("prev-btn");
     els.nextBtn = document.getElementById("next-btn");
     els.repeatBtn = document.getElementById("repeat-btn");
+    els.reviewBtn = document.getElementById("review-btn");
+    els.gradeButtons = document.getElementById("grade-buttons");
+    els.correctBtn = document.getElementById("correct-btn");
+    els.missedBtn = document.getElementById("missed-btn");
 
     populateDeckPicker();
 
@@ -31,6 +37,13 @@
       goTo(state.position + 1);
     });
     els.repeatBtn.addEventListener("click", restartDeck);
+    els.reviewBtn.addEventListener("click", toggleReviewMode);
+    els.correctBtn.addEventListener("click", function () {
+      gradeCard("correct");
+    });
+    els.missedBtn.addEventListener("click", function () {
+      gradeCard("missed");
+    });
     els.deckSelect.addEventListener("change", function () {
       state.deckIndex = Number(els.deckSelect.value);
       restartDeck();
@@ -58,8 +71,11 @@
     return indices;
   }
 
-  function shuffledIndices(length) {
-    var indices = orderedIndices(length);
+  function buildOrder(indices, deck) {
+    return deck.randomShuffle ? shuffleInPlace(indices) : indices;
+  }
+
+  function shuffleInPlace(indices) {
     // Fisher-Yates shuffle
     for (var j = indices.length - 1; j > 0; j--) {
       var k = Math.floor(Math.random() * (j + 1));
@@ -70,14 +86,55 @@
     return indices;
   }
 
+  function missedIndices() {
+    var indices = [];
+    for (var key in state.results) {
+      if (state.results[key] === "missed") indices.push(Number(key));
+    }
+    return indices;
+  }
+
   function restartDeck() {
     var deck = currentDeck();
-    state.order = deck.randomShuffle
-      ? shuffledIndices(deck.cards.length)
-      : orderedIndices(deck.cards.length);
+    state.results = {};
+    state.reviewMode = false;
+    state.order = buildOrder(orderedIndices(deck.cards.length), deck);
     state.position = 0;
     state.flipped = false;
     renderCard();
+    updateReviewButton();
+  }
+
+  function toggleReviewMode() {
+    var deck = currentDeck();
+    if (state.reviewMode) {
+      state.reviewMode = false;
+      state.order = buildOrder(orderedIndices(deck.cards.length), deck);
+    } else {
+      var missed = missedIndices();
+      if (missed.length === 0) return;
+      state.reviewMode = true;
+      state.order = buildOrder(missed, deck);
+    }
+    state.position = 0;
+    state.flipped = false;
+    renderCard();
+    updateReviewButton();
+  }
+
+  function gradeCard(result) {
+    var cardIndex = state.order[state.position];
+    state.results[cardIndex] = result;
+    updateReviewButton();
+    goTo(state.position + 1);
+  }
+
+  function updateReviewButton() {
+    var missedCount = missedIndices().length;
+    els.reviewBtn.textContent = state.reviewMode
+      ? "Back to full deck"
+      : "Review missed (" + missedCount + ")";
+    els.reviewBtn.disabled = !state.reviewMode && missedCount === 0;
   }
 
   function goTo(newPosition) {
@@ -101,7 +158,10 @@
     els.cardInner.classList.remove("flipped");
 
     els.progress.textContent =
-      "Card " + (state.position + 1) + " of " + state.order.length;
+      (state.reviewMode ? "Reviewing missed - Card " : "Card ") +
+      (state.position + 1) +
+      " of " +
+      state.order.length;
 
     els.prevBtn.disabled = state.position === 0;
     els.nextBtn.disabled = state.position === state.order.length - 1;

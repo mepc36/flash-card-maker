@@ -120,3 +120,43 @@ body {
 .repeat:hover {
   background: #2a2a3d;
 }
+
+.repeat:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.secondary-controls {
+  display: flex;
+  gap: 12px;
+}
+
+.grade-buttons {
+  display: flex;
+  gap: 16px;
+}
+
+.grade-btn {
+  font-size: 1rem;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  color: #f2f2f2;
+}
+
+.grade-missed {
+  background: #7a3a3a;
+}
+
+.grade-missed:hover {
+  background: #8f4646;
+}
+
+.grade-correct {
+  background: #3a6a3a;
+}
+
+.grade-correct:hover {
+  background: #467f46;
+}

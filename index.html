@@ -22,12 +22,20 @@
 
   <div class="progress" id="progress"></div>
 
+  <div class="grade-buttons" id="grade-buttons">
+    <button class="grade-btn grade-missed" id="missed-btn">&#10007; Missed it</button>
+    <button class="grade-btn grade-correct" id="correct-btn">&#10003; Got it</button>
+  </div>
+
   <div class="nav">
     <button id="prev-btn">&#8592; Prev</button>
     <button id="next-btn">Next &#8594;</button>
   </div>
 
-  <button class="repeat" id="repeat-btn">Restart deck</button>
+  <div class="secondary-controls">
+    <button class="repeat" id="repeat-btn">Restart deck</button>
+    <button class="repeat" id="review-btn">Review missed (0)</button>
+  </div>
 
   <script>
     // Cache-bust so GitHub Pages' cached copies never show stale questions.
