@@ -54,7 +54,7 @@ window.DECKS = [
         answer:
           "- Test automatically & manually\n" +
           "- Product sets threshold beforehand\n" +
-          "- Assess tradeoffs if there's a regression"
+          "- Assess tradeoffs for regressions"
       },
       {
         question: "How would you triage a bug in prod?",
@@ -96,7 +96,7 @@ window.DECKS = [
       },
       {
         question: "What is a t-test in plain English?",
-        answer: "Whether two means differ by more than noise"
+        answer: "Checks whether the gap between two means is bigger than just noise"
       },
       {
         question: "What's the mathematical formula for a t-test?",
@@ -104,7 +104,7 @@ window.DECKS = [
       },
       {
         question: "What is a p value in plain English?",
-        answer: "The odds that the gap between two means is random"
+        answer: "The odds the gap between two means is just noise"
       },
       {
         question: "How to go from t-stat to p value in plain English?",
@@ -144,6 +144,13 @@ window.DECKS = [
         question: "How did you measure latency?",
         answer:
           "- Used DataDog span tags\n"
+      },
+      {
+        question: "How did you improve those 3 dimensions?",
+        answer:
+          "- Accuracy: normalization\n" +
+          "- Similarity: expanded dataset\n" +
+          "- Latency: serverless\n"
       },
       {
         question: "What was the outcome?",
@@ -194,9 +201,7 @@ window.DECKS = [
       {
         question: "What were the business outcomes?",
         answer:
-          "- higher pickup rate\n" +
-          "- lower retries\n" +
-          "- lower dropped calls"
+          "- higher collection rates"
       }
     ]
   },

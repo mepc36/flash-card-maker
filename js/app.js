@@ -105,17 +105,21 @@
     updateReviewButton();
   }
 
+  function currentModeOrder(deck) {
+    return state.reviewMode
+      ? buildOrder(missedIndices(), deck)
+      : buildOrder(orderedIndices(deck.cards.length), deck);
+  }
+
   function toggleReviewMode() {
     var deck = currentDeck();
     if (state.reviewMode) {
       state.reviewMode = false;
-      state.order = buildOrder(orderedIndices(deck.cards.length), deck);
     } else {
-      var missed = missedIndices();
-      if (missed.length === 0) return;
+      if (missedIndices().length === 0) return;
       state.reviewMode = true;
-      state.order = buildOrder(missed, deck);
     }
+    state.order = currentModeOrder(deck);
     state.position = 0;
     state.flipped = false;
     renderCard();
@@ -126,7 +130,24 @@
     var cardIndex = state.order[state.position];
     state.results[cardIndex] = result;
     updateReviewButton();
-    goTo(state.position + 1);
+
+    if (state.position === state.order.length - 1) {
+      // Last card graded: loop back to the start in a fresh order,
+      // staying in whichever mode (review or full deck) we're in.
+      var deck = currentDeck();
+      state.order = currentModeOrder(deck);
+      if (state.reviewMode && state.order.length === 0) {
+        // Everything just got graded correct; nothing left to review.
+        state.reviewMode = false;
+        state.order = currentModeOrder(deck);
+        updateReviewButton();
+      }
+      state.position = 0;
+      state.flipped = false;
+      renderCard();
+    } else {
+      goTo(state.position + 1);
+    }
   }
 
   function updateReviewButton() {
