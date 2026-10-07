@@ -80,6 +80,13 @@ window.DECKS = [
           "- Show Product the specific calls that are failing\n" +
           "- Have a rollback plan"
       },
+      {
+        question: 'How do you assess a published benchmark?',
+        answer: "- who? (tested)\n" +
+          "- what? (condititions)\n" +
+          "- how? (load)\n" +
+          "- which? (model)\n"
+      }
     ]
   },
   {
@@ -148,9 +155,9 @@ window.DECKS = [
       {
         question: "How did you improve those 3 dimensions?",
         answer:
-          "- Accuracy: normalization\n" +
-          "- Similarity: expanded dataset\n" +
-          "- Latency: serverless\n"
+          "- Normalization\n" +
+          "- Expanded dataset\n" +
+          "- Serverless\n"
       },
       {
         question: "What was the outcome?",
