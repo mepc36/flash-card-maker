@@ -248,5 +248,163 @@ window.DECKS = [
           "- Less human intervention"
       }
     ]
+  },
+  {
+    label: "Nebius (SME)",
+    randomShuffle: true,
+    cards: [
+      {
+        question: "What does a db cursor do?",
+        answer:
+          "Tracks your position in query results so you can fetch and process rows incrementally"
+      },
+      {
+        question: "Preferred programming language and how concurrency works with it",
+        answer:
+          "asyncio --> concurrent I/O\n" +
+          "Threads --> blocking I/O\n" +
+          "Processes --> CPU-heavy work"
+      },
+      {
+        question: "ssh -vvv user@host investigates what?",
+        answer: "Delays during connection setup and authentication"
+      },
+      {
+        question: "ping host investigates what?",
+        answer: "Network latency and packet loss"
+      },
+      {
+        question: "top investigates what?",
+        answer: "High CPU usage and busy processes"
+      },
+      {
+        question: "free -h investigates what?",
+        answer: "Low available RAM and high swap usage"
+      },
+      {
+        question: "vmstat 1 investigates what?",
+        answer: "CPU contention, memory pressure, and active swapping"
+      },
+      {
+        question: "iostat -xz 1 investigates what?",
+        answer: "Disk latency and I/O bottlenecks"
+      },
+      {
+        question: "What does a db index help with?",
+        answer:
+          "- Helps the db find rows w/o scanning the whole table\n" +
+          "- Improves reads but adds work to writes"
+      },
+      {
+        question: "What is diff bw virtualization and containerization?",
+        answer:
+          "- VM --> separate kernel, isolated machine\n" +
+          "- Container --> shared kernel, isolated processes"
+      },
+      {
+        question: "Describe 3 python libraries used for XYZ",
+        answer:
+          "asyncio --> concurrent I/O\n" +
+          "concurrent.futures --> thread and process pools\n" +
+          "subprocess --> launch and manage external programs"
+      },
+      {
+        question: "What do you expect from the position?",
+        answer:
+          "1. Automate GPU server provisioning/testing/lifecycle mgmt\n" +
+          "2. Build monitoring and recovery systems"
+      },
+      {
+        question: "What's inside a server?",
+        answer:
+          "C -- CPUs\n" +
+          "A -- Airflow / cooling\n" +
+          "M -- Motherboard\n" +
+          "P -- Power supplies\n" +
+          "E -- Ethernet / network interfaces\n" +
+          "R -- RAM\n" +
+          "S -- Storage\n"
+      },
+      {
+        question: "What is the stack underneath HTTPS?",
+        answer:
+          "HTTP -->\n" +
+          "TLS -->\n" +
+          "TCP -->\n" +
+          "IP -->\n" +
+          "Ethernet / Wi-Fi"
+      },
+      {
+        question: "What does HTTP do?",
+        answer:
+          "Defines web requests and responses, such as “GET this page.”"
+      },
+      {
+        question: "What does TLS do?",
+        answer:
+          "- Encrypts the connection and verifies the server’s identity"
+      },
+      {
+        question: "What does TCP do?",
+        answer:
+          "Delivers data reliably and in order, resending missing data"
+      },
+      {
+        question: "What does IP stand for and do?",
+        answer:
+          "Addresses and routes packets between networks"
+      },
+      {
+        question: "What is Ethernet?",
+        answer:
+          "Carries data across a local network using cables"
+      },
+      {
+        question: "What is Wi-Fi?",
+        answer:
+          "Carries data across a local network using radio waves"
+      },
+      {
+        question: "What does the kernel do?",
+        answer:
+          "- schedules processes\n" +
+          "- allocates memory\n" +
+          "- controls devices\n" +
+          "- sends and receives network packets"
+      },
+      {
+        question: "How to optimize CPU-bound Python?",
+        answer:
+          "- Optimize algorithmic efficiency" +
+          "- Use process pools to run work in parallel across CPU cores"
+      },
+      {
+        question: "How to optimize I/O-bound Python?",
+        answer: "- Concurrency via asyncio or thread pools"
+      },
+      {
+        question: 'What does a "reboot" button on a website for a bare-metal server do? How does that work from end to end?',
+        answer: "- Browser sends request\n" +
+          "- API auths user\n" +
+          "- backend tells BMC to reboot\n" +
+          "- server restarts\n" +
+          "- firmware loads bootloader\n" +
+          "- bootloader loads kernel\n" +
+          "- services start\n" +
+          "- platform checks server health"
+      },
+      {
+        question: "What is firmware?",
+        answer: "Software built into hardware that initializes and controls it"
+      },
+      {
+        question: "What is a BMC (Baseboard Management Controller)?",
+        answer: "Independent hardware for remotely monitoring and controlling a server"
+      },
+      {
+        question: "What is a bootloader?",
+        answer: "Software that loads the OS kernel into memory and starts it"
+      },
+    ]
   }
 ];
