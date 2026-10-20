@@ -250,7 +250,7 @@ window.DECKS = [
     ]
   },
   {
-    label: "Nebius (SME)",
+    label: "Nebius (SME 1)",
     randomShuffle: true,
     cards: [
       {
@@ -405,6 +405,88 @@ window.DECKS = [
         question: "What is a bootloader?",
         answer: "Software that loads the OS kernel into memory and starts it"
       },
+    ]
+  },
+  {
+    label: "Nebius (SME 2)",
+    randomShuffle: true,
+    cards: [
+      {
+        question: "How does a DNS lookup resolve?",
+        answer:
+          "- App asks OS resolver, checks cache and /etc/hosts\n" +
+          "- Resolver asks recursive server (ISP, 8.8.8.8)\n" +
+          "- Recursive asks root --> TLD (.com) --> authoritative\n" +
+          "- Gets IP back, caches it per TTL"
+      },
+      {
+        question: "Common ports and protocols?",
+        answer:
+          "22 --> SSH\n" +
+          "53 --> DNS\n" +
+          "67/68 --> DHCP\n" +
+          "80 --> HTTP\n" +
+          "443 --> HTTPS\n" +
+          "623 --> IPMI"
+      },
+      {
+        question: "TCP vs UDP?",
+        answer:
+          "- TCP --> handshake, ordered, resends lost data (HTTP, SSH)\n" +
+          "- UDP --> fire and forget, faster, no ordering (DNS, video)"
+      },
+      {
+        question: "What data structure backs a db index?",
+        answer:
+          "- B-tree, sorted and balanced\n" +
+          "- Lookup is O(log n) instead of a full scan\n" +
+          "- Supports range queries and ORDER BY\n" +
+          "- Hash index --> equality only, no ranges"
+      },
+      {
+        question: "SSH is slow. Order of checks?",
+        answer:
+          "1. Slow to connect or slow once in?\n" +
+          "2. ping / mtr host --> latency, packet loss\n" +
+          "3. ssh -vvv --> stuck on DNS, GSSAPI, or auth?\n" +
+          "4. Server side: top, free -h, iostat --> CPU, RAM, disk\n" +
+          "5. Tunnel: check the jump host the same way"
+      },
+      {
+        question: "What protocols talk to a BMC?",
+        answer:
+          "- IPMI --> old, binary, port 623\n" +
+          "- Redfish --> modern, REST over HTTPS, JSON\n" +
+          "- Both do power cycle, sensors, console, boot order"
+      },
+      {
+        question: "What does DHCP do?",
+        answer:
+          "- Hands a booting machine an IP, gateway, DNS server\n" +
+          "- Can also point it to a boot file for PXE"
+      },
+      {
+        question: "How does network boot (PXE) work?",
+        answer:
+          "- Firmware asks DHCP for IP and boot server\n" +
+          "- Pulls bootloader over TFTP or HTTP\n" +
+          "- Bootloader pulls kernel and installer image\n" +
+          "- Used to provision bare metal at scale, no USB sticks"
+      },
+      {
+        question: "What does strace do?",
+        answer:
+          "- Logs every syscall a process makes\n" +
+          "- Shows what a hung process is waiting on: file, socket, lock\n" +
+          "- strace -p PID attaches to a running one"
+      },
+      {
+        question: "Why the Hardware Infrastructure team?",
+        answer:
+          "- Ran rapBot GPU inference 7 years, felt the hardware pain firsthand\n" +
+          "- Want to automate the fleet, not sit above it\n" +
+          "- Python plus Linux is my core stack"
+      }
     ]
   }
 ];
