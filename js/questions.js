@@ -486,6 +486,60 @@ window.DECKS = [
           "- Ran rapBot GPU inference 7 years, felt the hardware pain firsthand\n" +
           "- Want to automate the fleet, not sit above it\n" +
           "- Python plus Linux is my core stack"
+      },
+      {
+        question: "What is a file descriptor?",
+        answer:
+          "- Integer handle the kernel gives a process for an open file, socket, or pipe\n" +
+          "- 0 stdin, 1 stdout, 2 stderr\n" +
+          "- Limit per process: ulimit -n\n" +
+          "- Too many open --> EMFILE error, leaks show in lsof -p PID"
+      },
+      {
+        question: "What is a syscall?",
+        answer:
+          "- How a process asks the kernel to do something: open, read, write, fork, socket\n" +
+          "- Switches CPU from user mode to kernel mode\n" +
+          "- strace shows them, slow ones show where a process waits"
+      },
+      {
+        question: "What is /proc?",
+        answer:
+          "- Virtual filesystem, kernel state exposed as files\n" +
+          "- /proc/PID/fd --> open files\n" +
+          "- /proc/PID/status --> memory, threads, state\n" +
+          "- /proc/cpuinfo, /proc/meminfo --> hardware"
+      },
+      {
+        question: "Service can't read a file and chmod is broken. What now?",
+        answer:
+          "- Check: ls -l, id, getfacl\n" +
+          "- Try another path: chown, setfacl, or run service as the owner\n" +
+          "- Copy the file somewhere the service can read, cp works\n" +
+          "- Fix chmod itself: mount a working binary, busybox chmod, or python os.chmod"
+      },
+      {
+        question: "Process vs thread?",
+        answer:
+          "- Process --> own memory, crash stays contained, heavier to start\n" +
+          "- Thread --> shares memory with siblings, cheap, one bad thread kills all\n" +
+          "- Python: threads share the GIL, processes get real parallelism"
+      },
+      {
+        question: "A Kubernetes pod is stuck. Order of checks?",
+        answer:
+          "1. kubectl get pods --> status: Pending, CrashLoop, ImagePull\n" +
+          "2. kubectl describe pod --> events, scheduling failures\n" +
+          "3. kubectl logs, add --previous for crashed container\n" +
+          "4. kubectl exec --> poke around inside\n" +
+          "5. Node side: kubectl describe node, taints, resources"
+      },
+      {
+        question: "Node selector vs affinity?",
+        answer:
+          "- nodeSelector --> simple label match, must match\n" +
+          "- nodeAffinity --> richer rules, required or preferred\n" +
+          "- Taints push pods off a node, tolerations let them back on"
       }
     ]
   }
