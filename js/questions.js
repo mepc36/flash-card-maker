@@ -124,7 +124,7 @@ window.DECKS = [
     ]
   },
   {
-    label: "Deepgram (rapBot)",
+    label: "Use case (rapBot model eval)",
     randomShuffle: false,
     cards: [
       {
@@ -167,7 +167,7 @@ window.DECKS = [
     ]
   },
   {
-    label: "Deepgram (Twilio)",
+    label: "Use Case (Navient @ Twilio)",
     randomShuffle: false,
     cards: [
       {
@@ -213,7 +213,7 @@ window.DECKS = [
     ]
   },
   {
-    label: "Deepgram (HR Agent)",
+    label: "Use case (NBCU HR Agent)",
     randomShuffle: false,
     cards: [
       {
@@ -250,14 +250,9 @@ window.DECKS = [
     ]
   },
   {
-    label: "Nebius (SME 1)",
+    label: "Nebius (recruiter's SME 1)",
     randomShuffle: true,
     cards: [
-      {
-        question: "What does a db cursor do?",
-        answer:
-          "Tracks your position in query results so you can fetch and process rows incrementally"
-      },
       {
         question: "Preferred programming language and how concurrency works with it",
         answer:
@@ -266,61 +261,25 @@ window.DECKS = [
           "Processes --> CPU-heavy work"
       },
       {
-        question: "ssh -vvv user@host investigates what?",
-        answer: "Delays during connection setup and authentication"
-      },
-      {
-        question: "ping host investigates what?",
-        answer: "Network latency and packet loss"
-      },
-      {
-        question: "top investigates what?",
-        answer: "High CPU usage and busy processes"
-      },
-      {
-        question: "free -h investigates what?",
-        answer: "Low available RAM and high swap usage"
-      },
-      {
-        question: "vmstat 1 investigates what?",
-        answer: "CPU contention, memory pressure, and active swapping"
-      },
-      {
-        question: "iostat -xz 1 investigates what?",
-        answer: "Disk latency and I/O bottlenecks"
-      },
-      {
-        question: "What does a db index help with?",
-        answer:
-          "- Helps the db find rows w/o scanning the whole table\n" +
-          "- Improves reads but adds work to writes"
-      },
-      {
         question: "What is diff bw virtualization and containerization?",
         answer:
           "- VM --> separate kernel, isolated machine\n" +
           "- Container --> shared kernel, isolated processes"
       },
       {
-        question: "Describe 3 python libraries used for XYZ",
+        question: "Describe 3 python libraries used for managing concurrency",
         answer:
           "asyncio --> concurrent I/O\n" +
           "concurrent.futures --> thread and process pools\n" +
           "subprocess --> launch and manage external programs"
       },
       {
-        question: "What do you expect from the position?",
-        answer:
-          "1. Automate GPU server provisioning/testing/lifecycle mgmt\n" +
-          "2. Build monitoring and recovery systems"
-      },
-      {
         question: "What's inside a server?",
         answer:
           "C -- CPUs\n" +
-          "A -- Airflow / cooling\n" +
+          "A -- Airflow\n" +
           "M -- Motherboard\n" +
-          "P -- Power supplies\n" +
+          "P -- Power\n" +
           "E -- Ethernet / network interfaces\n" +
           "R -- RAM\n" +
           "S -- Storage\n"
@@ -340,75 +299,51 @@ window.DECKS = [
           "Defines web requests and responses, such as “GET this page.”"
       },
       {
-        question: "What does TLS do?",
+        question: "What does TLS (Transport Layer Security) do?",
         answer:
           "- Encrypts the connection and verifies the server’s identity"
       },
       {
-        question: "What does TCP do?",
+        question: "What does TCP (Transmission Control Protocol) do?",
         answer:
           "Delivers data reliably and in order, resending missing data"
       },
       {
-        question: "What does IP stand for and do?",
+        question: "What does IP (Internet Protocol) do?",
         answer:
-          "Addresses and routes packets between networks"
+          "Routes packets between networks"
       },
       {
         question: "What is Ethernet?",
         answer:
-          "Carries data across a local network using cables"
+          "Carries network data via cables"
       },
       {
         question: "What is Wi-Fi?",
         answer:
-          "Carries data across a local network using radio waves"
+          "Carries network data via radio waves"
       },
       {
         question: "What does the kernel do?",
         answer:
-          "- schedules processes\n" +
-          "- allocates memory\n" +
           "- controls devices\n" +
+          "- allocates memory\n" +
+          "- schedules processes\n" +
           "- sends and receives network packets"
       },
       {
         question: "How to optimize CPU-bound Python?",
         answer:
-          "- Optimize algorithmic efficiency" +
           "- Use process pools to run work in parallel across CPU cores"
       },
       {
         question: "How to optimize I/O-bound Python?",
         answer: "- Concurrency via asyncio or thread pools"
       },
-      {
-        question: 'What does a "reboot" button on a website for a bare-metal server do? How does that work from end to end?',
-        answer: "- Browser sends request\n" +
-          "- API auths user\n" +
-          "- backend tells BMC to reboot\n" +
-          "- server restarts\n" +
-          "- firmware loads bootloader\n" +
-          "- bootloader loads kernel\n" +
-          "- services start\n" +
-          "- platform checks server health"
-      },
-      {
-        question: "What is firmware?",
-        answer: "Software built into hardware that initializes and controls it"
-      },
-      {
-        question: "What is a BMC (Baseboard Management Controller)?",
-        answer: "Independent hardware for remotely monitoring and controlling a server"
-      },
-      {
-        question: "What is a bootloader?",
-        answer: "Software that loads the OS kernel into memory and starts it"
-      },
     ]
   },
   {
-    label: "Nebius (SME 2)",
+    label: "Nebius (recruiter's SME 2)",
     randomShuffle: true,
     cards: [
       {
@@ -428,64 +363,6 @@ window.DECKS = [
           "80 --> HTTP\n" +
           "443 --> HTTPS\n" +
           "623 --> IPMI"
-      },
-      {
-        question: "TCP vs UDP?",
-        answer:
-          "- TCP --> handshake, ordered, resends lost data (HTTP, SSH)\n" +
-          "- UDP --> fire and forget, faster, no ordering (DNS, video)"
-      },
-      {
-        question: "What data structure backs a db index?",
-        answer:
-          "- B-tree, sorted and balanced\n" +
-          "- Lookup is O(log n) instead of a full scan\n" +
-          "- Supports range queries and ORDER BY\n" +
-          "- Hash index --> equality only, no ranges"
-      },
-      {
-        question: "SSH is slow. Order of checks?",
-        answer:
-          "1. Slow to connect or slow once in?\n" +
-          "2. ping / mtr host --> latency, packet loss\n" +
-          "3. ssh -vvv --> stuck on DNS, GSSAPI, or auth?\n" +
-          "4. Server side: top, free -h, iostat --> CPU, RAM, disk\n" +
-          "5. Tunnel: check the jump host the same way"
-      },
-      {
-        question: "What protocols talk to a BMC?",
-        answer:
-          "- IPMI --> old, binary, port 623\n" +
-          "- Redfish --> modern, REST over HTTPS, JSON\n" +
-          "- Both do power cycle, sensors, console, boot order"
-      },
-      {
-        question: "What does DHCP do?",
-        answer:
-          "- Hands a booting machine an IP, gateway, DNS server\n" +
-          "- Can also point it to a boot file for PXE"
-      },
-      {
-        question: "How does network boot (PXE) work?",
-        answer:
-          "- Firmware asks DHCP for IP and boot server\n" +
-          "- Pulls bootloader over TFTP or HTTP\n" +
-          "- Bootloader pulls kernel and installer image\n" +
-          "- Used to provision bare metal at scale, no USB sticks"
-      },
-      {
-        question: "What does strace do?",
-        answer:
-          "- Logs every syscall a process makes\n" +
-          "- Shows what a hung process is waiting on: file, socket, lock\n" +
-          "- strace -p PID attaches to a running one"
-      },
-      {
-        question: "Why the Hardware Infrastructure team?",
-        answer:
-          "- Ran rapBot GPU inference 7 years, felt the hardware pain firsthand\n" +
-          "- Want to automate the fleet, not sit above it\n" +
-          "- Python plus Linux is my core stack"
       },
       {
         question: "What is a file descriptor?",
@@ -518,13 +395,250 @@ window.DECKS = [
           "- Copy the file somewhere the service can read, cp works\n" +
           "- Fix chmod itself: mount a working binary, busybox chmod, or python os.chmod"
       },
+    ]
+  },
+  {
+    label: 'Tech Tutorials (Nebius)',
+    randomShuffle: true,
+    cards: [
       {
-        question: "Process vs thread?",
-        answer:
-          "- Process --> own memory, crash stays contained, heavier to start\n" +
-          "- Thread --> shares memory with siblings, cheap, one bad thread kills all\n" +
-          "- Python: threads share the GIL, processes get real parallelism"
+        question: "What is SSH?",
+        answer: "A protocol for securely connecting to another computer over a network"
       },
+      {
+        question: "What happens when you SSH?",
+        answer:
+          "- Hostname resolves to IP address\n" +
+          "- Connection opened on 22\n" +
+          "- Secret keys derived via authenticated key exchange\n" +
+          "- Server verified via host key\n" +
+          "- Client verified via SSH key or password\n" +
+          "- SSH opens a session or shell\n"
+      },
+      {
+        question: "Does ssh_config handle client or server connections?",
+        answer: "client"
+      },
+      {
+        question: "Does sshd_config handle client or server connections?",
+        answer: "server\n" +
+          "d = daemon"
+      },
+      {
+        question: "What is DNS (Domain Name System)?",
+        answer:
+          "Converts human-readable web addresses to computer-readable IP addresses\n" +
+          "e.g.: example.com → 192.0.2.1."
+      },
+      {
+        question: "What is a DNS A record?",
+        answer:
+          "Hostname → IPv4 address\n" +
+          "ex: gpu-node → 10.0.0.17"
+      },
+      {
+        question: "What is a DNS AAAA record?",
+        answer:
+          "Hostname → IPv6 address\n" +
+          "ex: gpu-node → 2001:db8::17"
+      },
+      {
+        question: "What is a DNS CNAME record?",
+        answer:
+          "Alias → another hostname\n" +
+          "ex: training-server → gpu-node"
+      },
+      {
+        question: "What is a DNS PTR record?",
+        answer:
+          "IP address → hostname\n" +
+          "ex: 10.0.0.17 → gpu-node"
+      },
+      {
+        question: "What does a kernel cgroup do?",
+        answer: 'Enforces memory limits on a set of processes'
+      }
+    ]
+  },
+  {
+    label: "CLI Tools (Nebius)",
+    randomShuffle: true,
+    cards: [
+      {
+        question: "ssh -vvv USER_NAME@HOSTNAME investigates what?",
+        answer: "Delays during connection setup and authentication"
+      },
+      {
+        question: "ping HOSTNAME investigates what?",
+        answer: "Network latency and packet loss"
+      },
+      {
+        question: "top investigates what?",
+        answer: "High CPU usage and busy processes"
+      },
+      {
+        question: "free -h investigates what?",
+        answer: "Low available RAM and high swap usage"
+      },
+      {
+        question: "vmstat 1 investigates what?",
+        answer: "CPU usage"
+      },
+      {
+        question: "iostat -xz 1 investigates what?",
+        answer: "Disk latency and I/O bottlenecks"
+      },
+      {
+        question: "What does strace do?",
+        answer:
+          "- Logs every syscall a process makes\n" +
+          "- Shows what a hung process is waiting on: file, socket, lock\n" +
+          "- strace -p PID attaches to a running one"
+      },
+      {
+        question: "What does getent (getentries) do?",
+        answer: "Retrieves entries from system databases using configured lookup sources\n"
+      },
+      {
+        question: "What does dig (domain information groper) do?",
+        answer:
+          "- Queries DNS records, nameservers, errors, and timings\n" +
+          "- ex: reverse lookup: `dig -x 172.30.0.10`"
+      },
+      {
+        question: "What does mtr (My TraceRoute) do?",
+        answer:
+          "- Shows latency and packet loss at each network hop\n" +
+          "- ex: `mtr lab-server` → probes the route to lab-server"
+      },
+      {
+        question: "What does dmesg do?",
+        answer:
+          "- Prints the kernel's own log: OOM kills, disk errors, driver messages\n"
+      }
+    ]
+  },
+  {
+    label: "Nebius (recruiter SME, miscellaneous)",
+    randomShuffle: true,
+    cards: [
+      // Databases
+      {
+        question: "What does a db cursor do?",
+        answer:
+          "Tracks your position in query results so you can fetch and process rows incrementally"
+      },
+      {
+        question: "What does a db index help with?",
+        answer:
+          "- Helps the db find rows w/o scanning the whole table\n" +
+          "- Improves reads but adds work to writes"
+      },
+      {
+        question: "What data structure backs a db index?",
+        answer:
+          "- B-tree, sorted and balanced\n" +
+          "- Lookup is O(log n) instead of a full scan\n" +
+          "- Supports range queries and ORDER BY\n" +
+          "- Hash index --> equality only, no ranges"
+      },
+      // Bare metal and boot
+      {
+        question: 'What does a "reboot" button on a website for a bare-metal server do? How does that work from end to end?',
+        answer: "- Browser sends request\n" +
+          "- API auths user\n" +
+          "- backend tells BMC to reboot\n" +
+          "- server restarts\n" +
+          "- firmware loads bootloader\n" +
+          "- bootloader loads kernel\n" +
+          "- services start\n" +
+          "- platform checks server health"
+      },
+      {
+        question: "What is firmware?",
+        answer: "Software built into hardware that initializes and controls it"
+      },
+      {
+        question: "What is a BMC (Baseboard Management Controller)?",
+        answer: "Independent hardware for remotely monitoring and controlling a server"
+      },
+      {
+        question: "What protocols talk to a BMC?",
+        answer:
+          "- IPMI --> old, binary, port 623\n" +
+          "- Redfish --> modern, REST over HTTPS, JSON\n" +
+          "- Both do power cycle, sensors, console, boot order"
+      },
+      {
+        question: "What is a bootloader?",
+        answer: "Software that loads the OS kernel into memory and starts it"
+      },
+      {
+        question: "What does DHCP do?",
+        answer:
+          "- Hands a booting machine an IP, gateway, DNS server\n" +
+          "- Can also point it to a boot file for PXE"
+      },
+      {
+        question: "How does network boot (PXE) work?",
+        answer:
+          "- Firmware asks DHCP for IP and boot server\n" +
+          "- Pulls bootloader over TFTP or HTTP\n" +
+          "- Bootloader pulls kernel and installer image\n" +
+          "- Used to provision bare metal at scale, no USB sticks"
+      },
+      // Networking
+      {
+        question: "What is TCP?",
+        answer: "- Handshake, ordered, resends lost data (HTTP, SSH)"
+      },
+      {
+        question: "What is UDP?",
+        answer: "- Fire and forget, faster, no ordering (DNS, video)"
+      },
+      // Debugging a slow SSH session
+      {
+        question: "SSH is slow. First question to ask?",
+        answer: "Is the slowness on the network or on the machine?"
+      },
+      {
+        question: "ping HOSTNAME investigates what?",
+        answer: "Network latency and packet loss"
+      },
+      {
+        question: "mtr HOSTNAME investigates what?",
+        answer: "Packet loss and latency at each network hop"
+      },
+      {
+        question: "ssh -vvv USER_NAME@HOSTNAME investigates what?",
+        answer: "Delays during connection setup and authentication"
+      },
+      {
+        question: "top investigates what?",
+        answer: "High CPU usage and busy processes on the server"
+      },
+      {
+        question: "free -h investigates what?",
+        answer: "Low available RAM and high swap usage on the server"
+      },
+      {
+        question: "iostat -xz 1 investigates what?",
+        answer: "Disk latency and I/O bottlenecks on the server"
+      },
+      {
+        question: "SSH goes through a jump host. What do you check?",
+        answer: "Run the same checks (ping, mtr, top, free, iostat) on the jump host"
+      },
+      // Processes
+      {
+        question: "What is a process?",
+        answer: "- Running program with its own memory, crash stays contained, heavier to start"
+      },
+      {
+        question: "What is a thread?",
+        answer: "- Runs inside a process and shares its memory, cheap, one bad thread can kill the whole process"
+      },
+      // Kubernetes
       {
         question: "A Kubernetes pod is stuck. Order of checks?",
         answer:
@@ -542,5 +656,5 @@ window.DECKS = [
           "- Taints push pods off a node, tolerations let them back on"
       }
     ]
-  }
+  },
 ];
