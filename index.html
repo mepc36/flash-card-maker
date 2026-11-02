@@ -9,32 +9,36 @@
 </head>
 <body>
   <div class="controls">
-    <label for="deck-select">Deck:</label>
-    <select id="deck-select"></select>
+    <select id="group-select" aria-label="Company"></select>
+    <select id="deck-select" aria-label="Deck" disabled></select>
   </div>
 
-  <div class="card" id="card">
-    <div class="card-inner" id="card-inner">
-      <div class="card-face card-front" id="question-text"></div>
-      <div class="card-face card-back" id="answer-text"></div>
+  <p class="empty-state" id="empty-state">Pick a company, then a deck, to begin.</p>
+
+  <div class="deck-session" id="deck-session" hidden>
+    <div class="card" id="card">
+      <div class="card-inner" id="card-inner">
+        <div class="card-face card-front" id="question-text"></div>
+        <div class="card-face card-back" id="answer-text"></div>
+      </div>
     </div>
-  </div>
 
-  <div class="progress" id="progress"></div>
+    <div class="progress" id="progress"></div>
 
-  <div class="grade-buttons" id="grade-buttons">
-    <button class="grade-btn grade-missed" id="missed-btn">&#10007; Missed it</button>
-    <button class="grade-btn grade-correct" id="correct-btn">&#10003; Got it</button>
-  </div>
+    <div class="grade-buttons" id="grade-buttons">
+      <button class="grade-btn grade-missed" id="missed-btn">&#10007; Missed it</button>
+      <button class="grade-btn grade-correct" id="correct-btn">&#10003; Got it</button>
+    </div>
 
-  <div class="nav">
-    <button id="prev-btn">&#8592; Prev</button>
-    <button id="next-btn">Next &#8594;</button>
-  </div>
+    <div class="nav">
+      <button id="prev-btn">&#8592; Prev</button>
+      <button id="next-btn">Next &#8594;</button>
+    </div>
 
-  <div class="secondary-controls">
-    <button class="repeat" id="repeat-btn">Restart deck</button>
-    <button class="repeat" id="review-btn">Review missed (0)</button>
+    <div class="secondary-controls">
+      <button class="repeat" id="repeat-btn">Restart deck</button>
+      <button class="repeat" id="review-btn">Review missed (0)</button>
+    </div>
   </div>
 
   <script>

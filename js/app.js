@@ -2,7 +2,8 @@
 
 (function () {
   var state = {
-    deckIndex: 0,
+    groupIndex: null, // index into window.DECK_GROUPS, null until user picks a company
+    deckIndex: null, // index into window.DECKS, null until user picks a deck
     order: [], // indices into current deck's cards for the active session
     position: 0, // index into "order"
     flipped: false,
@@ -13,7 +14,10 @@
   var els = {};
 
   function init() {
+    els.groupSelect = document.getElementById("group-select");
     els.deckSelect = document.getElementById("deck-select");
+    els.emptyState = document.getElementById("empty-state");
+    els.deckSession = document.getElementById("deck-session");
     els.card = document.getElementById("card");
     els.cardInner = document.getElementById("card-inner");
     els.questionText = document.getElementById("question-text");
@@ -27,7 +31,8 @@
     els.correctBtn = document.getElementById("correct-btn");
     els.missedBtn = document.getElementById("missed-btn");
 
-    populateDeckPicker();
+    buildGroupOptions();
+    resetDeckSelect();
 
     els.card.addEventListener("click", flipCard);
     els.prevBtn.addEventListener("click", function () {
@@ -44,21 +49,65 @@
     els.missedBtn.addEventListener("click", function () {
       gradeCard("missed");
     });
-    els.deckSelect.addEventListener("change", function () {
-      state.deckIndex = Number(els.deckSelect.value);
-      restartDeck();
+    els.groupSelect.addEventListener("change", function () {
+      onGroupChosen(Number(els.groupSelect.value));
     });
-
-    restartDeck();
+    els.deckSelect.addEventListener("change", function () {
+      onDeckChosen(Number(els.deckSelect.value));
+    });
   }
 
-  function populateDeckPicker() {
-    window.DECKS.forEach(function (deck, index) {
+  function buildGroupOptions() {
+    var placeholder = disabledHeaderOption("Company");
+    placeholder.selected = true;
+    els.groupSelect.appendChild(placeholder);
+    window.DECK_GROUPS.forEach(function (group, index) {
       var option = document.createElement("option");
       option.value = index;
+      option.textContent = group.label;
+      els.groupSelect.appendChild(option);
+    });
+  }
+
+  // Clears the deck dropdown back to just its "Deck" placeholder, used
+  // both on first load and whenever the company changes.
+  function resetDeckSelect() {
+    els.deckSelect.innerHTML = "";
+    var placeholder = disabledHeaderOption("Deck");
+    placeholder.selected = true;
+    els.deckSelect.appendChild(placeholder);
+  }
+
+  function onGroupChosen(groupIndex) {
+    state.groupIndex = groupIndex;
+    state.deckIndex = null;
+    els.deckSession.hidden = true;
+    els.emptyState.hidden = false;
+
+    resetDeckSelect();
+    els.deckSelect.disabled = false;
+    window.DECK_GROUPS[groupIndex].decks.forEach(function (deck) {
+      var option = document.createElement("option");
+      option.value = window.DECKS.indexOf(deck);
       option.textContent = deck.label;
       els.deckSelect.appendChild(option);
     });
+  }
+
+  function onDeckChosen(deckIndex) {
+    state.deckIndex = deckIndex;
+    els.emptyState.hidden = true;
+    els.deckSession.hidden = false;
+    restartDeck();
+  }
+
+  // A grayed-out, unselectable option shown only when the dropdown is
+  // opened, so the user sees what the list represents (e.g. "Company").
+  function disabledHeaderOption(text) {
+    var option = document.createElement("option");
+    option.disabled = true;
+    option.textContent = text;
+    return option;
   }
 
   function currentDeck() {

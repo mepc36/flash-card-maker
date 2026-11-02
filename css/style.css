@@ -21,6 +21,16 @@ body {
   gap: 12px;
 }
 
+#group-select {
+  font-size: 1rem;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background: #2a2a3d;
+  color: #f2f2f2;
+  width: 160px;
+}
+
 #deck-select {
   font-size: 1rem;
   padding: 8px 12px;
@@ -28,6 +38,28 @@ body {
   border: 1px solid #444;
   background: #2a2a3d;
   color: #f2f2f2;
+  width: 320px;
+}
+
+#deck-select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.empty-state {
+  color: #aaa;
+  font-size: 1rem;
+}
+
+.deck-session {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.deck-session[hidden] {
+  display: none;
 }
 
 .card {

@@ -5,10 +5,13 @@
 // Each card has "question" and "answer". Answer text uses "\n" for line
 // breaks so bullet structure is preserved exactly as written.
 //
-// Decks are defined as separate consts below (one per deck) and
-// collected into window.DECKS at the very bottom of this file.
-// To add a new deck: copy a const below, give it a new name, then add
-// that name to the window.DECKS array.
+// Decks are defined as separate consts below (one per deck), then
+// grouped into named group arrays (e.g. DEEPGRAM_DECKS), then collected
+// into window.DECK_GROUPS and window.DECKS at the very bottom of this
+// file. To add a new deck: copy a const below, give it a new name, then
+// add that name to the relevant group array (e.g. NEBIUS_DECKS).
+// To add a new company/group: add a new group array and a new entry
+// in window.DECK_GROUPS.
 
 const DEEPGRAM_FAQ_DECK = {
   label: "Deepgram (FAQ)",
@@ -669,15 +672,32 @@ const NEBIUS_SME_MISC_DECK = {
   ]
 };
 
-window.DECKS = [
+const DEEPGRAM_DECKS = [
   DEEPGRAM_FAQ_DECK,
   DEEPGRAM_STATISTICS_DECK,
   RAPBOT_MODEL_EVAL_DECK,
   NAVIENT_TWILIO_DECK,
-  NBCU_HR_AGENT_DECK,
+  NBCU_HR_AGENT_DECK
+];
+
+const NEBIUS_DECKS = [
   NEBIUS_SME_1_DECK,
   NEBIUS_SME_2_DECK,
   NEBIUS_TECH_TUTORIALS_DECK,
   NEBIUS_CLI_TOOLS_DECK,
   NEBIUS_SME_MISC_DECK
 ];
+
+// Each group pairs a tab label (shown in the picker) with its decks.
+// Order here controls both tab order and, after flattening below,
+// deck index order in window.DECKS.
+window.DECK_GROUPS = [
+  { label: "Deepgram", decks: DEEPGRAM_DECKS },
+  { label: "Nebius", decks: NEBIUS_DECKS }
+];
+
+// Flat list of every deck, derived from DECK_GROUPS above. app.js uses
+// this for its flat deckIndex state; decks never need to be listed twice.
+window.DECKS = window.DECK_GROUPS.reduce(function (all, group) {
+  return all.concat(group.decks);
+}, []);
