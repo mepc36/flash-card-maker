@@ -414,38 +414,37 @@ const NEBIUS_TECH_TUTORIALS_DECK = {
       answer: "server"
     },
     {
-      question: "What is DNS (Domain Name System)?",
+      question: "What does DNS convert between?",
       answer:
-        "Converts human-readable web addresses to computer-readable IP addresses\n" +
-        "e.g.: example.com → 192.0.2.1."
+        "Human-readable addresses → computer-readable addresses\n"
     },
     {
-      question: "What is a DNS A record?",
+      question: "What does a DNS A record convert between?",
       answer:
-        "Hostname → IPv4 address\n" +
-        "ex: gpu-node → 10.0.0.17"
+        "Hostname → IPv4 address\n"
     },
     {
-      question: "What is a DNS AAAA record?",
+      question: "What does a DNS AAAA record convert between?",
       answer:
-        "Hostname → IPv6 address\n" +
-        "ex: gpu-node → 2001:db8::17"
+        "Hostname → IPv6 address\n"
     },
     {
-      question: "What is a DNS CNAME record?",
+      question: "What does a DNS CNAME record convert between?",
       answer:
-        "Alias → another hostname\n" +
-        "ex: training-server → gpu-node"
+        "Alias → hostname\n"
     },
     {
-      question: "What is a DNS PTR record?",
+      question: "What does a DNS PTR (pointer) record convert between?",
       answer:
-        "IP address → hostname\n" +
-        "ex: 10.0.0.17 → gpu-node"
+        "IP address → hostname\n"
     },
     {
       question: "What does a kernel cgroup do?",
       answer: 'Enforces memory limits on a set of processes'
+    },
+    {
+      question: 'What is a network router?',
+      answer: 'Forwards packets between different networks'
     }
   ]
 };
