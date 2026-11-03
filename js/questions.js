@@ -14,7 +14,7 @@
 // in window.DECK_GROUPS.
 
 const DEEPGRAM_FAQ_DECK = {
-  label: "Deepgram (FAQ)",
+  label: "FAQ",
   randomShuffle: true,
   cards: [
     {
@@ -96,7 +96,7 @@ const DEEPGRAM_FAQ_DECK = {
 };
 
 const DEEPGRAM_STATISTICS_DECK = {
-  label: "Deepgram (statistics)",
+  label: "Statistics",
   randomShuffle: true,
   cards: [
     {
@@ -175,7 +175,7 @@ const RAPBOT_MODEL_EVAL_DECK = {
 };
 
 const NAVIENT_TWILIO_DECK = {
-  label: "Use Case (Navient @ Twilio)",
+  label: "Use case (Navient)",
   randomShuffle: false,
   cards: [
     {
@@ -260,7 +260,7 @@ const NBCU_HR_AGENT_DECK = {
 };
 
 const NEBIUS_SME_1_DECK = {
-  label: "Nebius (recruiter's SME 1)",
+  label: "Recruiter's SME",
   randomShuffle: true,
   cards: [
     {
@@ -334,6 +334,11 @@ const NEBIUS_SME_1_DECK = {
         "Carries network data via radio waves"
     },
     {
+      question: "What is a kernel?",
+      answer:
+        "- The core of an operating system"
+    },
+    {
       question: "What does the kernel do?",
       answer:
         "- controls devices\n" +
@@ -350,13 +355,6 @@ const NEBIUS_SME_1_DECK = {
       question: "How to optimize I/O-bound Python?",
       answer: "- Concurrency via asyncio or thread pools"
     },
-  ]
-};
-
-const NEBIUS_SME_2_DECK = {
-  label: "Nebius (recruiter's SME 2)",
-  randomShuffle: true,
-  cards: [
     {
       question: "How does a DNS lookup resolve?",
       answer:
@@ -366,56 +364,36 @@ const NEBIUS_SME_2_DECK = {
         "- Gets IP back, caches it per TTL"
     },
     {
-      question: "Common ports and protocols?",
-      answer:
-        "22 --> SSH\n" +
-        "53 --> DNS\n" +
-        "67/68 --> DHCP\n" +
-        "80 --> HTTP\n" +
-        "443 --> HTTPS\n" +
-        "623 --> IPMI"
-    },
-    {
       question: "What is a file descriptor?",
       answer:
         "- Integer handle the kernel gives a process for an open file, socket, or pipe\n" +
-        "- 0 stdin, 1 stdout, 2 stderr\n" +
-        "- Limit per process: ulimit -n\n" +
-        "- Too many open --> EMFILE error, leaks show in lsof -p PID"
+        "ex.: - 0 stdin, 1 stdout, 2 stderr\n"
     },
     {
       question: "What is a syscall?",
       answer:
         "- How a process asks the kernel to do something: open, read, write, fork, socket\n" +
-        "- Switches CPU from user mode to kernel mode\n" +
-        "- strace shows them, slow ones show where a process waits"
+        "- Switches CPU from user mode to kernel mode\n"
     },
     {
       question: "What is /proc?",
       answer:
-        "- Virtual filesystem, kernel state exposed as files\n" +
-        "- /proc/PID/fd --> open files\n" +
-        "- /proc/PID/status --> memory, threads, state\n" +
-        "- /proc/cpuinfo, /proc/meminfo --> hardware"
+        "- Virtual filesystem where kernel state is exposed as files\n"
     },
     {
-      question: "Service can't read a file and chmod is broken. What now?",
-      answer:
-        "- Check: ls -l, id, getfacl\n" +
-        "- Try another path: chown, setfacl, or run service as the owner\n" +
-        "- Copy the file somewhere the service can read, cp works\n" +
-        "- Fix chmod itself: mount a working binary, busybox chmod, or python os.chmod"
-    },
+      question: 'What is systemd?',
+      answer: "Linux's system and service manager"
+    }
   ]
 };
 
 const NEBIUS_TECH_TUTORIALS_DECK = {
-  label: 'Tech Tutorials (Nebius)',
+  label: 'DNS',
   randomShuffle: true,
   cards: [
     {
       question: "What is SSH?",
-      answer: "A protocol for securely connecting to another computer over a network"
+      answer: "A protocol for securely connecting to a server over a network"
     },
     {
       question: "What happens when you SSH?",
@@ -425,7 +403,7 @@ const NEBIUS_TECH_TUTORIALS_DECK = {
         "- Secret keys derived via authenticated key exchange\n" +
         "- Server verified via host key\n" +
         "- Client verified via SSH key or password\n" +
-        "- SSH opens a session or shell\n"
+        "- SSH opens a session or shell"
     },
     {
       question: "Does ssh_config handle client or server connections?",
@@ -433,8 +411,7 @@ const NEBIUS_TECH_TUTORIALS_DECK = {
     },
     {
       question: "Does sshd_config handle client or server connections?",
-      answer: "server\n" +
-        "d = daemon"
+      answer: "server"
     },
     {
       question: "What is DNS (Domain Name System)?",
@@ -474,31 +451,27 @@ const NEBIUS_TECH_TUTORIALS_DECK = {
 };
 
 const NEBIUS_CLI_TOOLS_DECK = {
-  label: "CLI Tools (Nebius)",
+  label: "CLI Tools",
   randomShuffle: true,
   cards: [
     {
-      question: "ssh -vvv USER_NAME@HOSTNAME investigates what?",
-      answer: "Delays during connection setup and authentication"
-    },
-    {
-      question: "ping HOSTNAME investigates what?",
+      question: "What is ping used to investigate?",
       answer: "Network latency and packet loss"
     },
     {
-      question: "top investigates what?",
+      question: "What is top used to investigate?",
       answer: "High CPU usage and busy processes"
     },
     {
-      question: "free -h investigates what?",
+      question: "What is free -h used to investigate?",
       answer: "Low available RAM and high swap usage"
     },
     {
-      question: "vmstat 1 investigates what?",
-      answer: "CPU usage"
+      question: "What is vmstat used to investigate?",
+      answer: "CPU activity, process state, memory, swapping, and disk I/O"
     },
     {
-      question: "iostat -xz 1 investigates what?",
+      question: "What is iostat -used to investigate?",
       answer: "Disk latency and I/O bottlenecks"
     },
     {
@@ -509,23 +482,22 @@ const NEBIUS_CLI_TOOLS_DECK = {
         "- strace -p PID attaches to a running one"
     },
     {
-      question: "What does getent (getentries) do?",
+      question: "What is getent used to investigate?",
       answer: "Retrieves entries from system databases using configured lookup sources\n"
     },
     {
-      question: "What does dig (domain information groper) do?",
+      question: "What is dig (Domain Information Groper) used to investigate?",
       answer:
-        "- Queries DNS records, nameservers, errors, and timings\n" +
-        "- ex: reverse lookup: `dig -x 172.30.0.10`"
+        "- DNS records, nameservers, errors, and timings\n"
     },
     {
-      question: "What does mtr (My TraceRoute) do?",
+      question: "What is mtr (My TraceRoute) used to investigate?",
       answer:
         "- Shows latency and packet loss at each network hop\n" +
         "- ex: `mtr lab-server` → probes the route to lab-server"
     },
     {
-      question: "What does dmesg do?",
+      question: "What is dmesg used to investigate?",
       answer:
         "- Prints the kernel's own log: OOM kills, disk errors, driver messages\n"
     }
@@ -533,7 +505,7 @@ const NEBIUS_CLI_TOOLS_DECK = {
 };
 
 const NEBIUS_SME_MISC_DECK = {
-  label: "Nebius (recruiter SME, miscellaneous)",
+  label: "Recruiter SME (miscellaneous)",
   randomShuffle: true,
   cards: [
     // Databases
@@ -668,7 +640,25 @@ const NEBIUS_SME_MISC_DECK = {
         "- nodeSelector --> simple label match, must match\n" +
         "- nodeAffinity --> richer rules, required or preferred\n" +
         "- Taints push pods off a node, tolerations let them back on"
-    }
+    },
+    {
+      question: "How do you debug a svc that can't read files when chmod is broken?",
+      answer:
+        "- Check: ls -l, id, getfacl\n" +
+        "- Try another path: chown, setfacl, or run service as the owner\n" +
+        "- Copy the file somewhere the service can read, cp works\n" +
+        "- Fix chmod itself: mount a working binary, busybox chmod, or python os.chmod"
+    },
+    {
+      question: "Common ports and protocols?",
+      answer:
+        "22 --> SSH\n" +
+        "53 --> DNS\n" +
+        "67/68 --> DHCP\n" +
+        "80 --> HTTP\n" +
+        "443 --> HTTPS\n" +
+        "623 --> IPMI"
+    },
   ]
 };
 
