@@ -43,17 +43,32 @@
 
   <script>
     // Cache-bust so GitHub Pages' cached copies never show stale questions.
-    // app.js loads only after questions.js finishes, to preserve load order.
+    // Scripts load one at a time in this order: every deck file, then
+    // questions.js (groups the decks), then app.js.
     (function () {
+      var DECK_FILES = [
+        "js/decks/deepgram/deepgram-faq.js",
+        "js/decks/deepgram/deepgram-statistics.js",
+        "js/decks/deepgram/rapbot-model-eval.js",
+        "js/decks/deepgram/navient-twilio.js",
+        "js/decks/deepgram/nbcu-hr-agent.js",
+        "js/decks/nebius/nebius-sme-1.js",
+        "js/decks/nebius/nebius-tech-tutorials.js",
+        "js/decks/nebius/nebius-cli-tools.js",
+        "js/decks/nebius/nebius-sme-misc.js",
+        "js/decks/service-titan/service-titan-algorithms.js",
+        "js/decks/coding-review/coding-review-js-to-python.js"
+      ];
+      var scriptPaths = DECK_FILES.concat(["js/questions.js", "js/app.js"]);
       var bust = "?t=" + Date.now();
-      var questionsScript = document.createElement("script");
-      questionsScript.src = "js/questions.js" + bust;
-      questionsScript.onload = function () {
-        var appScript = document.createElement("script");
-        appScript.src = "js/app.js" + bust;
-        document.body.appendChild(appScript);
-      };
-      document.body.appendChild(questionsScript);
+      function loadScript(index) {
+        if (index >= scriptPaths.length) return;
+        var script = document.createElement("script");
+        script.src = scriptPaths[index] + bust;
+        script.onload = function () { loadScript(index + 1); };
+        document.body.appendChild(script);
+      }
+      loadScript(0);
     })();
   </script>
 </body>
