@@ -74,5 +74,11 @@ const LIVEKIT_AI_WORKFLOW_DECK = {
         "- Tight write permissions\n" +
         "- Required pre-approval"
     },
+    {
+      question: "Why hand-roll your AI workflow instead of using a sandbox like Fence?",
+      answer:
+        "- Stricter threat model:\n" +
+        "- FORBIDDEN: localhost/direct repo edits/env vars"
+    },
   ]
 };
