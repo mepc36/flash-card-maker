@@ -3,10 +3,6 @@ const LIVEKIT_NAVIENT_DECK = {
   randomShuffle: false,
   cards: [
     {
-      question: "Who was the customer for your Waterfield virtual agent?",
-      answer: "- Navient, student loan servicer"
-    },
-    {
       question: "What did Navient need from the virtual agent?",
       answer:
         "- Handle calls before human agents\n" +
@@ -26,13 +22,12 @@ const LIVEKIT_NAVIENT_DECK = {
     },
     {
       question: "What did Navient push back on?",
-      answer: "- Timeline, wanted it faster"
+      answer: "- The long timeline -- they wanted it faster"
     },
     {
       question: "How did you handle Navient's timeline pushback?",
       answer:
-        "- V1 shipped balance lookups + warm transfer\n" +
-        "- Payments, transaction reviews became fast follows"
+        "- We agreed that payment handling would ship only after v1"
     },
     {
       question: "Why were Navient payments a fast follow?",

@@ -10,61 +10,39 @@ const LIVEKIT_PRISM_DECK = {
     {
       question: "How did the first Prism Portal HR agent get its documents?",
       answer:
-        "SharePoint -->\n" +
-        "Logic App -->\n" +
-        "blob storage -->\n" +
-        "Azure Function -->\n" +
-        "1 vector file"
-    },
-    {
-      question: "Why was per-user RBAC hard to enforce in the first HR agent?",
-      answer:
-        "- Backend never got employee identity\n" +
-        "- VPN login not passed along"
-    },
-    {
-      question: "What was your workaround to the HR agent's lack of per-user RBAC?",
-      answer:
-        "- Small user group or docs held back"
-    },
-    {
-      question: "How did the second HR agent version enforce per-user RBAC?",
-      answer:
-        "1. Microsoft Graph Search w/ employee's token\n" +
-        "2. Microsoft returns only files employee can open\n" +
-        "3. BM25 picks best chunks --> top 6 to model"
-    },
-    {
-      question: "Why use Microsoft Graph Search for HR agent retrieval?",
-      answer:
-        "- Microsoft enforces file permissions\n" +
-        "- Own ranking code controls what model sees"
-    },
-    {
-      question: "Which algorithm ranks the HR agent's SharePoint chunks?",
-      answer:
-        "- BM25 keyword scoring, in memory\n" +
-        "- Low scores dropped\n" +
-        "- Top 6 chunks sent to model"
-    },
-    {
-      question: "What changed for HR after the Graph Search move?",
-      answer:
-        "- No limit on users or docs\n" +
-        "- Several hundred --> several thousand employees\n" +
-        "- Held-back docs now included"
-    },
-    {
-      question: "What changed in the HR agent's code after the Graph Search move?",
-      answer:
-        "- Nightly SharePoint copy job removed\n" +
-        "- No stored chunks or vector files"
+        "A logic app copied sharepoint documents nightly to a blob storage function\n" +
+        "An azure function chunked and vectorized them into .npy, .json, and .txt files that were also palced in blob storage"
     },
     {
       question: "Why was the HR agent's nightly SharePoint copy job painful?",
       answer:
         "- Built in low-code designer\n" +
         "- Hand copied into 11 env folders"
+    },
+    {
+      question: "Why was per-user RBAC hard to enforce in the first HR agent?",
+      answer:
+        "- User identity was only used to determine VPN access, not gate agent or document access\n"
+    },
+    {
+      question: "What was your workaround to the HR agent's lack of per-user RBAC?",
+      answer:
+        "- Small user group and holding docs held back"
+    },
+    {
+      question: "How did the second HR agent version enforce per-user RBAC?",
+      answer:
+        "Microsoft Graph Search w/ employee's token\n"
+    },
+    {
+      question: "Why handroll your own retrieval API?",
+      answer:
+        "- Finer control over chunk ranking"
+    },
+    {
+      question: "Which algorithm ranks the HR agent's SharePoint chunks?",
+      answer:
+        "- BM25 keyword scoring\n"
     },
     {
       question: "How does a chat request flow through Prism Portal?",
@@ -75,52 +53,49 @@ const LIVEKIT_PRISM_DECK = {
         "6.1 Sol"
     },
     {
-      question: "What infrastructure runs Prism Portal?",
+      question: "What infrastructure does Prism Portal run on?",
       answer:
-        "- Azure Container Apps\n" +
-        "- Cosmos DB\n" +
-        "- Terraform for all of it"
-    },
-    {
-      question: "Why does Prism Portal stream chat with server-sent events?",
-      answer:
-        "- Answer flows one way, server to browser\n" +
-        "- Plain HTTP passes corporate proxies\n" +
-        "- Keep-alive pings stop idle cutoffs"
-    },
-    {
-      question: "Whose permissions does a Prism Portal agent act with?",
-      answer:
-        "- Employee's own token per tool\n" +
-        "- SharePoint, MCP servers apply their own perms"
+        "- Azure containers + cosmos db managed by Terraform\n"
     },
     {
       question: "How do you test Prism Portal agents' answer quality?",
-      answer:
-        "- LLM evals gate CI/CD\n" +
-        "- Judge model scores faithfulness + correctness\n" +
-        "- Score under cutoff blocks deploy"
+      answer: "- LLM-as-judge scores faithfulness + correctness\n"
     },
     {
       question: "A Prism Portal user reports a wrong answer. Now what?",
       answer:
-        "1. Find session ID\n" +
-        "2. Open Datadog trace, read retrieval span\n" +
-        "3. Read gateway log for exact prompt"
+        "Use session ID to find datadog trace"
     },
     {
       question: "What are you building at NBCU right now?",
       answer:
-        "- NBCU Agent split off Prism Portal\n" +
+        "- Splitting NBCU Agent off Prism Portal\n" +
         "- My part: Terraform + agent loop\n" +
         "- Independent deploys, smaller blast radius"
     },
     {
+      question: "Why are you splitting off NBCU agent?",
+      answer:
+        "- Smaller cybersecurity blast radius"
+    },
+    {
+      question: "What is your part in NBCU Agent?",
+      answer:
+        "- My part: Terraform + agent loop\n"
+    },
+    {
       question: "What would you change next in Prism Portal?",
       answer:
-        "- Cap or summarize long chat history\n" +
-        "- Rerank + chunk overlap\n" +
-        "- Gradual deploys, auto rollback"
+        "- Compacting long chat history\n"
+    },
+    {
+      question: "How does the HR agent's Graph Search retrieval work, step by step?",
+      answer:
+        "POST `/query` ranks employee's files -->\n" +
+        "GET `/items` gets files' full text -->\n" +
+        "Chunk files' full text -->\n" +
+        "Rank chunks via BM25 -->\n" +
+        "Send top chunks to LLM"
     }
   ]
 };
