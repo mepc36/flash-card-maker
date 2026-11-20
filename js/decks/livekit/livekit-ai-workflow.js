@@ -16,7 +16,14 @@ const LIVEKIT_AI_WORKFLOW_DECK = {
         "Agents --> Claude Code\n" +
         "LLM --> gpt-oss:20b\n" +
         "Model server --> Ollama\n" +
+        "Container-to-model communication --> local disk\n" +
         "Container --> Docker"
+    },
+    {
+      question: "Why did you pick gpt-oss:20b?",
+      answer: "- free\n" +
+        "- Mac compatible\n" +
+        "- handles tool calls\n"
     },
     {
       question: "Where do your AI workflow's agents run?",
@@ -42,26 +49,17 @@ const LIVEKIT_AI_WORKFLOW_DECK = {
     {
       question: "How does a reviewer's critique get fixed in your workflow?",
       answer:
-        "- I start a new loop\n" +
-        "- Accepted critique becomes new task"
-    },
-    {
-      question: "Why does your AI workflow start a new agent per step?",
-      answer:
-        "- Different permissions per step\n" +
-        "- Docker mounts fixed at start\n" +
-        "- Reviewers judge diff only"
+        "- I start a new loop\n"
     },
     {
       question: "What stops endless loops in your AI workflow?",
       answer:
-        "- A model call cap 32"
+        "- A model call caps it"
     },
     {
       question: "How does a model differ from an agent?",
       answer:
-        "- Model --> text in, text out\n" +
-        "- Agent --> loop calling model + running tools"
+        "Agent is deterministic code that calls a model, model is generative"
     },
     {
       question: "How do your workflow's containers reach the model w/o network?",
