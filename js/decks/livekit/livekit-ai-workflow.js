@@ -66,6 +66,13 @@ const LIVEKIT_AI_WORKFLOW_DECK = {
       answer:
         "- File mailbox to Ollama on Mac\n" +
         "- 1 model, 1 API route allowed"
-    }
+    },
+    {
+      question: "Why hand-roll your AI workflow instead of using an AI coding tool like Aider?",
+      answer:
+        "- Agents with no internet\n" +
+        "- Tight write permissions\n" +
+        "- Required pre-approval"
+    },
   ]
 };
