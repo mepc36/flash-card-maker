@@ -12,6 +12,17 @@
 // To add a new company/group: make a new js/decks/<group>/ dir, add a
 // new group array below, and a new entry in window.DECK_GROUPS.
 
+const LIVEKIT_DECKS = [
+  LIVEKIT_RAPBOT_DECK,
+  LIVEKIT_PRISM_DECK,
+  LIVEKIT_NAVIENT_DECK,
+  LIVEKIT_AI_WORKFLOW_DECK
+];
+
+const DEEPGRAM_RESEARCH_DECKS = [
+  DEEPGRAM_RESEARCH_TRAINING_PIPELINE_DECK
+];
+
 const CODING_REVIEW_DECKS = [
   CODING_REVIEW_JS_TO_PYTHON_DECK
 ];
@@ -39,6 +50,8 @@ const SERVICE_TITAN_DECKS = [
 // Order here controls both tab order and, after flattening below,
 // deck index order in window.DECKS.
 window.DECK_GROUPS = [
+  { label: "LiveKit", decks: LIVEKIT_DECKS },
+  { label: "Deepgram Research", decks: DEEPGRAM_RESEARCH_DECKS },
   { label: "Deepgram", decks: DEEPGRAM_DECKS },
   { label: "Nebius", decks: NEBIUS_DECKS },
   { label: "Service Titan", decks: SERVICE_TITAN_DECKS },
