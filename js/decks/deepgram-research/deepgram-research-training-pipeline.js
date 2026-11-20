@@ -3,102 +3,65 @@ const DEEPGRAM_RESEARCH_TRAINING_PIPELINE_DECK = {
   randomShuffle: false,
   cards: [
     {
-      question: "What models did rapBot train?",
-      answer:
-        "- RADTTS fine-tunes, 1 per rapper voice\n" +
-        "- Hundreds of voice models"
-    },
-    {
       question: "How did rapBot train models before the pipeline?",
-      answer:
-        "- By hand in a Colab notebook\n" +
-        "- Me + our researcher"
+      answer: "- Google Colab notebook"
     },
     {
       question: "What broke in rapBot's Colab training?",
       answer:
-        "- Runs died partway, restarted from zero\n" +
-        "- Few hours per failure\n" +
-        "- Researcher lost ~1 day per sprint"
-    },
-    {
-      question: "How did you find rapBot's failed training runs?",
-      answer: "- Each of us watched our own runs"
+        "- Dependency drift\n" +
+        "- no version control for orchestration layer\n" +
+        "- not scalable\n" +
+        "- Ephemeral intermediate checkpoints"
     },
     {
       question: "What caused rapBot's Colab runs to die?",
       answer:
-        "- Colab disconnected long sessions\n" +
-        "- Checkpoints + logs on Drive mount\n" +
-        "- Mount died w/ session"
+        "- Colab runtime disconnects\n"
     },
+
     {
-      question: "What else was wrong with rapBot's Colab notebook?",
+      question: "How did you design rapBot's new training pipeline?",
       answer:
-        "- Cloned RADTTS fresh, unpinned\n" +
-        "- Hyperparams typed by hand\n" +
-        "- No metrics dashboard"
-    },
-    {
-      question: "What training option did you reject for rapBot?",
-      answer:
-        "- Always-on GPU machine\n" +
-        "- Paid for idle GPU"
-    },
-    {
-      question: "What did you choose for rapBot training, and why?",
-      answer:
-        "- Containerized jobs on serverless GPUs\n" +
-        "- Pay only while training\n" +
-        "- Same pinned image every run"
+        "- Maintainable: vendored black box (RADTTS)\n" +
+        "- Visible: metrics dashboard (Weights & Biases)\n" +
+        "- Portable: containerized (Docker)\n" +
+        "- Durable: intermediate checkpoints (S3)\n" +
+        "- Scalable: job queues and serverless GPU (RunPod)"
     },
     {
       question: "How does a rapBot training run work now?",
       answer:
-        "1. One request goes to job queue\n" +
-        "2. Serverless GPU worker starts container\n" +
-        "3. train.py reads config, runs RADTTS\n" +
-        "4. Metrics stream to experiment tracker\n" +
-        "5. Each checkpoint uploads to blob storage"
+        "- Send training job via POST /run\n" +
+        "- Check queue/logs/metrics in RunPod + Weights & Biases\n" +
+        "- Create checkpoint in S3"
     },
     {
       question: "Which vendors did rapBot's training pipeline use?",
       answer:
-        "Job queue --> RunPod Serverless\n" +
-        "Experiment tracker --> Weights & Biases\n" +
-        "Blob storage --> S3"
-    },
-    {
-      question: "What changed for rapBot's researcher after the pipeline?",
-      answer:
-        "- Lost day per sprint dropped to ~0\n" +
-        "- Starts runs w/ 1 request\n" +
-        "- Watches metrics on dashboard"
-    },
-    {
-      question: "What changed in rapBot's training code after the pipeline?",
-      answer:
-        "- Checkpoints upload as they're saved\n" +
-        "- No notebook, no Drive mount"
+        "RunPod --> job queue and GPU provisioning\n" +
+        "Weights & Biases --> metrics dashboard\n" +
+        "S3 --> checkpoints\n" +
+        "Docker --> containerization"
     },
     {
       question: "How would someone repeat a rapBot training run later?",
-      answer:
-        "- Config in version control\n" +
-        "- Image pins RADTTS commit"
+      answer: "- rerun training job with version controlled config on the image that pins the RADTTS commit"
     },
     {
       question: "What gap remains in rapBot's training pipeline?",
       answer:
-        "- No resume from saved checkpoint\n" +
-        "- Planned fix adds download, then auto retries"
+        "1. Warm restart\n" +
+        "- Checkpoint download to the worker isn't built\n" +
+        "- Then automatic retries, the config already has the setting\n" +
+        "2. Log parser\n" +
+        "- Safe while pinned to one commit\n" +
+        "- Sturdier source: TensorBoard files the model already writes"
     },
     {
       question: "Why did rapBot use RADTTS?",
       answer:
-        "- Control pitch, energy, syllable length\n" +
-        "- Rap depends on rhythm + pitch\n" +
-        "- Published weights, few hundred clips"
+        "- Control pitch, energy, syllable length"
     },
     {
       question: "Which TTS model would you pick today?",
@@ -107,41 +70,17 @@ const DEEPGRAM_RESEARCH_TRAINING_PIPELINE_DECK = {
     {
       question: "Who owned what between you and rapBot's researcher?",
       answer:
-        "Researcher --> hyperparams, reruns\n" +
-        "Me --> training data, pipeline, tooling\n" +
-        "Together --> dataset upgrades"
+        "Researcher --> hyperparams\n" +
+        "Me --> training data + pipeline"
     },
     {
       question: "What did rapBot's researcher hand you?",
-      answer: "- Notebook + config + checkpoint"
-    },
-    {
-      question: "What did rapBot's researcher ask for most?",
-      answer: "- Tooling to eval a new dimension"
+      answer: "- Config + checkpoint"
     },
     {
       question: "What did you build because rapBot's researcher asked?",
       answer:
-        "- WER score per checkpoint via STT\n" +
-        "- Score logged to dashboard"
-    },
-    {
-      question: "How did you hear a rapBot training run looked wrong?",
-      answer:
-        "- Outlier alerts\n" +
-        "- Otherwise standup or Slack"
-    },
-    {
-      question: "Have you done multi-node GPU training?",
-      answer:
-        "- Multi-GPU DDP on a single host\n" +
-        "- Multi-node, concepts only"
-    },
-    {
-      question: "Have you run Kubernetes?",
-      answer:
-        "- Docker, ECS/Fargate, Compose, Container Apps\n" +
-        "- Gap is the orchestrator"
+        "- WER score per checkpoint via STT"
     }
   ]
 };
