@@ -7,54 +7,51 @@ const LIVEKIT_AI_WORKFLOW_DECK = {
       answer:
         "- HITL\n" +
         "- isolated\n" +
-        "- scoped write access"
+        "- writes only to disposable clone"
     },
     {
       question: "What are all the parts of your AI workflow?",
       answer:
-        "Orchestrator --> python script\n" +
-        "Agents --> Claude Code\n" +
+        "Orchestrator --> bash script\n" +
+        "Agent --> Aider\n" +
         "LLM --> gpt-oss:20b\n" +
         "Model server --> Ollama\n" +
-        "Container-to-model communication --> local disk\n" +
+        "Container-to-model communication --> allowlist proxy\n" +
         "Container --> Docker"
     },
     {
       question: "Why did you pick gpt-oss:20b?",
-      answer: "- free\n" +
-        "- Mac compatible\n" +
-        "- handles tool calls\n"
+      answer:
+        "- free\n" +
+        "- Mac compatible\n"
     },
     {
       question: "Where do your AI workflow's agents run?",
       answer:
         "- Disposable clone of my repo\n" +
-        "- Own Docker container each"
+        "- One Docker container per session\n" +
+        "- Internal network, no internet"
     },
     {
       question: "Describe the 6 stages in your AI workflow? (PPAIRC)",
       answer:
         "prompt -->\n" +
-        "plan -->\n" +
-        "approval -->\n" +
-        "implementation -->\n" +
-        "review -->\n" +
-        "commit"
+        "plan (gpt-oss reasons first) -->\n" +
+        "approval (Aider asks me) -->\n" +
+        "implementation (Aider edits clone) -->\n" +
+        "review (I read printed diff) -->\n" +
+        "commit (I git apply)"
     },
     {
-      question: "What do your AI workflow's 2 reviewers look for?",
+      question: "How does a change to the plan get applied in your workflow?",
       answer:
-        "logic bugs + bad tests"
-    },
-    {
-      question: "How does a reviewer's critique get fixed in your workflow?",
-      answer:
-        "- I start a new loop\n"
+        "I send a follow-up prompt in the same Aider chat"
     },
     {
       question: "What stops endless loops in your AI workflow?",
       answer:
-        "- A cap on model calls"
+        "- Aider caps its auto-fix retries\n" +
+        "- Each new turn needs my prompt"
     },
     {
       question: "How does a model differ from an agent?",
@@ -64,15 +61,8 @@ const LIVEKIT_AI_WORKFLOW_DECK = {
     {
       question: "How do your workflow's containers reach the model w/o network?",
       answer:
-        "- File mailbox to Ollama on Mac\n" +
-        "- 1 model, 1 API route allowed"
-    },
-    {
-      question: "Why hand-roll your AI workflow instead of using an AI coding tool like Aider?",
-      answer:
-        "- Agents with no internet\n" +
-        "- Tight write permissions\n" +
-        "- Required pre-approval"
+        "- Internal Docker network, proxy is only exit\n" +
+        "- Proxy allows 1 model, 2 chat routes"
     },
     {
       question: "Why hand-roll your AI workflow instead of using a sandbox like Fence?",
