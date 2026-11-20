@@ -3,26 +3,33 @@ const LIVEKIT_NAVIENT_DECK = {
   randomShuffle: false,
   cards: [
     {
-      question: "What did Navient need from the virtual agent?",
+      question: "What was the problem?",
       answer:
-        "- Handle calls before human agents\n" +
-        "- Balance lookups, payments, transaction reviews\n" +
-        "- 100K+ customers a month"
+        "- Pickup rates\n" +
+        "- Visibility\n" +
+        "- Concurrency"
+    },
+    {
+      question: "What was out of scope?",
+      answer: "- Legal hold accounts"
+    },
+    {
+      question: "What were the business outcomes?",
+      answer:
+        "- higher collection rates"
     },
     {
       question: "What was your role on the Navient project?",
-      answer: "- Customer-facing engineer"
+      answer: "- Embedded lead engineer"
     },
     {
       question: "How did you work with Navient's engineers?",
       answer:
-        "- Flew on-site\n" +
-        "- Ran workshops\n" +
-        "- Trained them to maintain it"
+        "- On-sites + workshops"
     },
     {
       question: "What did Navient push back on?",
-      answer: "- The long timeline -- they wanted it faster"
+      answer: "- They wanted a faster timeline"
     },
     {
       question: "How did you handle Navient's timeline pushback?",
@@ -31,22 +38,16 @@ const LIVEKIT_NAVIENT_DECK = {
     },
     {
       question: "Why were Navient payments a fast follow?",
-      answer: "- Needed most security review"
+      answer: "- It requried extended cybersecurity review"
     },
     {
       question: "What technical problem did you explain to non-technical Navient staff?",
       answer:
-        "- Recovering a failed call\n" +
-        "- Each call's state cached\n" +
-        "- Call resumes where caller left off"
+        "- How a failed call could be recovered from a call state database\n"
     },
     {
-      question: "What changed for Navient callers, with a number?",
+      question: "What improvements did Navient see?",
       answer: "- Avg call 2 mins shorter"
-    },
-    {
-      question: "What is a warm transfer?",
-      answer: "Virtual agent hands the caller and their context to a live agent"
     }
   ]
 };
