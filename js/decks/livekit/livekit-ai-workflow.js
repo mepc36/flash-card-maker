@@ -34,7 +34,7 @@ const LIVEKIT_AI_WORKFLOW_DECK = {
     {
       question: "Describe the 6 stages in your AI workflow? (PPAIRC)",
       answer:
-        "prompt -->" +
+        "prompt -->\n" +
         "plan -->\n" +
         "approval -->\n" +
         "implementation -->\n" +
@@ -54,7 +54,7 @@ const LIVEKIT_AI_WORKFLOW_DECK = {
     {
       question: "What stops endless loops in your AI workflow?",
       answer:
-        "- A model call caps it"
+        "- A cap on model calls"
     },
     {
       question: "How does a model differ from an agent?",
