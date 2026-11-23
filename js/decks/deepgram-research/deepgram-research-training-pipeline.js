@@ -7,37 +7,33 @@ const DEEPGRAM_RESEARCH_TRAINING_PIPELINE_DECK = {
       answer: "- Google Colab notebook"
     },
     {
-      question: "What broke in rapBot's Colab training?",
+      question: "What problems came from training models in Colab notebooks?",
       answer:
-        "- Dependency drift\n" +
-        "- no version control for orchestration layer\n" +
-        "- not scalable\n" +
-        "- Ephemeral intermediate checkpoints"
+        "- Couldn't run more than one job at a time"
     },
     {
       question: "What caused rapBot's Colab runs to die?",
       answer:
-        "- Colab runtime disconnects\n"
+        "- Colab runtime disconnects"
     },
 
     {
-      question: "How did you design rapBot's new training pipeline?",
+      question: "What goals did you have when re-designing rapBot's new training pipeline? (MVPS)",
       answer:
-        "- Maintainable: vendored black box (RADTTS)\n" +
-        "- Visible: metrics dashboard (Weights & Biases)\n" +
-        "- Portable: containerized (Docker)\n" +
-        "- Durable: intermediate checkpoints (S3)\n" +
-        "- Scalable: job queues and serverless GPU (RunPod)"
+        "- Maintainability: vendored black box (RADTTS)\n" +
+        "- Visibility: dashboards (Weights & Biases)\n" +
+        "- Portability: containers (Docker)\n" +
+        "- Scalability: job queues & serverless GPU (RunPod)"
     },
     {
-      question: "How does a rapBot training run work now?",
+      question: "What's the flow of execution control for the new pipeline?",
       answer:
-        "- Send training job via POST /run\n" +
+        "- Send training job via POST /run" +
         "- Check queue/logs/metrics in RunPod + Weights & Biases\n" +
         "- Create checkpoint in S3"
     },
     {
-      question: "Which vendors did rapBot's training pipeline use?",
+      question: "Which 4 major vendors does rapBot's training pipeline use?",
       answer:
         "RunPod --> job queue and GPU provisioning\n" +
         "Weights & Biases --> metrics dashboard\n" +
@@ -45,37 +41,28 @@ const DEEPGRAM_RESEARCH_TRAINING_PIPELINE_DECK = {
         "Docker --> containerization"
     },
     {
-      question: "How would someone repeat a rapBot training run later?",
-      answer: "- rerun training job with version controlled config on the image that pins the RADTTS commit"
-    },
-    {
-      question: "What gap remains in rapBot's training pipeline?",
+      question: "What future optimizations are planned for rapBot's training pipeline?",
       answer:
-        "1. Warm restart\n" +
-        "- Checkpoint download to the worker isn't built\n" +
-        "- Then automatic retries, the config already has the setting\n" +
-        "2. Log parser\n" +
-        "- Safe while pinned to one commit\n" +
-        "- Sturdier source: TensorBoard files the model already writes"
+        "Warm restarts from intermediate checkpoints"
     },
     {
       question: "Why did rapBot use RADTTS?",
       answer:
-        "- Control pitch, energy, syllable length"
+        "- To control pitch & syllable length"
     },
     {
-      question: "Which TTS model would you pick today?",
-      answer: "- Test zero-shot voice cloning first"
+      question: "What type of TTS model would you choose if you were redoing this today?",
+      answer: "- Zero-shot models"
     },
     {
-      question: "Who owned what between you and rapBot's researcher?",
+      question: "Did you or the researcher own the hyperparameters, dataset, & pipeline?",
       answer:
         "Researcher --> hyperparams\n" +
         "Me --> training data + pipeline"
     },
     {
       question: "What did rapBot's researcher hand you?",
-      answer: "- Config + checkpoint"
+      answer: "- Job config + checkpoint"
     },
     {
       question: "What did you build because rapBot's researcher asked?",
