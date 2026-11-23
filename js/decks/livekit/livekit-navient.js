@@ -3,18 +3,18 @@ const LIVEKIT_NAVIENT_DECK = {
   randomShuffle: false,
   cards: [
     {
-      question: "What was the problem?",
+      question: "What 3 metrics were forcing Navient to migrate?",
       answer:
         "- Pickup rates\n" +
         "- Visibility\n" +
         "- Concurrency"
     },
     {
-      question: "What was out of scope?",
+      question: "What accounts were out of scope for this project?",
       answer: "- Legal hold accounts"
     },
     {
-      question: "What were the business outcomes?",
+      question: "What was the KPI of the project?",
       answer:
         "- higher collection rates"
     },
@@ -43,11 +43,7 @@ const LIVEKIT_NAVIENT_DECK = {
     {
       question: "What technical problem did you explain to non-technical Navient staff?",
       answer:
-        "- How a failed call could be recovered from a call state database\n"
-    },
-    {
-      question: "What improvements did Navient see?",
-      answer: "- Avg call 2 mins shorter"
+        "- How a failed call could be recovered from a state database\n"
     }
   ]
 };

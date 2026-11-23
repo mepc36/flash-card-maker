@@ -19,6 +19,8 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
+  width: 100%;
+  max-width: 492px;
 }
 
 #group-select {
@@ -28,7 +30,8 @@ body {
   border: 1px solid #444;
   background: #2a2a3d;
   color: #f2f2f2;
-  width: 160px;
+  flex: 1 1 160px;
+  min-width: 0;
 }
 
 #deck-select {
@@ -38,7 +41,8 @@ body {
   border: 1px solid #444;
   background: #2a2a3d;
   color: #f2f2f2;
-  width: 320px;
+  flex: 2 1 320px;
+  min-width: 0;
 }
 
 #deck-select:disabled {
