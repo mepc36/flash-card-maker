@@ -86,39 +86,32 @@ const LIVEKIT_RAPBOT_DECK = {
         "In rapBot, the job queue was the jobs table in Postgres, managed by pg-boss."
     },
     {
-      question: "What is pub/sub?",
+      question: "What are the parts of a pub/sub pattern?",
       answer:
-        "Pub/sub is a messaging pattern with three parts: publishers, named channels, and subscribers.\n" +
-        "A broker sits in the middle and delivers each published message to the channel's current subscribers.\n" +
-        "In rapBot, the browser was the subscriber, the API server was the publisher, and Pusher was the broker."
+        "publisher --> API server\n" +
+        "Subscriber --> Browser\n" +
+        "Server sent events --> pgboss + server sent events"
     },
     {
       question: "What is plain polling?",
       answer:
-        "Plain polling is a client pattern of short requests repeated on a timer.\n" +
-        "Each request gets an immediate answer, even when the work is not ready yet.\n" +
-        "rapBot's API server polled the jobs table this way."
+        "short repeated requests"
     },
     {
       question: "What is long polling?",
       answer:
-        "Long polling is a client pattern of one long request per reply.\n" +
-        "The server holds each request open until it has data or a timeout passes.\n" +
-        "AWS SQS offers it, and rapBot did not use it."
+        "one long request per reply"
     },
     {
       question: "What are server-sent events?",
       answer:
-        "Server-sent events are a one-way stream inside a single HTTP response with the header Content-Type: text/event-stream.\n" +
-        "The server never ends that response and writes each message to it as it happens.\n" +
-        "EventSource is the browser object that opens and reads the stream."
+        "One-way stream inside a single HTTP response"
     },
     {
       question: "What are WebSockets?",
       answer:
-        "A WebSocket is a two-way connection between browser and server that stays open.\n" +
-        "It starts as an HTTP GET with an Upgrade: websocket header, and the server replies 101.\n" +
-        "After the upgrade, it is its own protocol and not HTTP."
+        "2 way long lived connection between browser and server\n" +
+        "Starts with an HTTP GET and an {Upgrade: websocket} header"
     },
   ]
 };
