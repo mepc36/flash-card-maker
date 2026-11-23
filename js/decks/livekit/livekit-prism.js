@@ -3,20 +3,20 @@ const LIVEKIT_PRISM_DECK = {
   randomShuffle: false,
   cards: [
     {
-      question: "What was the main problem with the first version of the Prism agent Portal?",
+      question: "What was the problem?",
       answer:
         "- Any user w/ access could read every doc\n"
     },
     {
-      question: "How did the first Prism Portal HR agent get its documents?",
+      question: "How did HR agent v1 vectorize its documents?",
       answer:
-        "A logic app copied sharepoint documents nightly to blob storage\n" +
-        "An azure function chunked and vectorized them"
+        "- logic app copies docs to storage\n" +
+        "- sls func vectorizes them to storage"
     },
     {
-      question: "Why was the HR agent's nightly SharePoint copy job painful?",
+      question: "Why was this vectorization process painful?",
       answer:
-        "- No version control"
+        "- Unoptimized queries"
     },
     {
       question: "Why was per-user RBAC hard to enforce in the first HR agent?",
@@ -26,17 +26,17 @@ const LIVEKIT_PRISM_DECK = {
     {
       question: "What was your workaround to the HR agent's lack of per-user RBAC?",
       answer:
-        "- Small user group"
+        "- Small user groups"
     },
     {
       question: "How did the second HR agent version enforce per-user RBAC?",
       answer:
-        "Microsoft Graph Search"
+        "MS Graph Search"
     },
     {
       question: "Why handroll your own retrieval API?",
       answer:
-        "- Finer control over chunk ranking"
+        "- Better search algorithms"
     },
     {
       question: "Which algorithm ranks the HR agent's SharePoint chunks?",
@@ -44,28 +44,23 @@ const LIVEKIT_PRISM_DECK = {
         "- BM25 keyword scoring\n"
     },
     {
-      question: "How do you test Prism Portal agents' answer quality?",
-      answer: "- LLM-as-judge scores faithfulness + correctness\n"
-    },
-    {
-      question: "A Prism Portal user reports a wrong answer. Now what?",
-      answer:
-        "Use session ID to find datadog trace"
+      question: "What dimensions did CI/CD tests use to grade RAG answers?",
+      answer: "- Faithfulness + Correctness\n"
     },
     {
       question: "What are you building at NBCU right now?",
       answer:
-        "- Splitting NBCU Agent off Prism Portal"
+        "- Separating NBCU Agent from Prism Portal v1"
     },
     {
       question: "Why are you splitting off NBCU agent?",
       answer:
-        "- Independent deploys + smaller blast radius"
+        "- Reduced blast radius"
     },
     {
       question: "What is your part in NBCU Agent?",
       answer:
-        "- My part: Terraform + agent loop\n"
+        "- Agent loop\n"
     },
     {
       question: "What would you change next in Prism Portal?",
@@ -75,10 +70,10 @@ const LIVEKIT_PRISM_DECK = {
     {
       question: "How does the HR agent's Graph Search retrieval work, step by step?",
       answer:
-        "POST `/query` ranks employee's files -->\n" +
-        "GET `/items` gets files' full text -->\n" +
-        "Chunk files' full text -->\n" +
-        "Rank chunks via BM25"
+        "- POST `/query` ranks employee's files\n" +
+        "- GET `/items` gets files' full text\n" +
+        "- Chunk files' full text\n" +
+        "- Rank chunks via BM25"
     }
   ]
 };
