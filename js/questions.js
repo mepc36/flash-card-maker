@@ -50,12 +50,12 @@ const SERVICE_TITAN_DECKS = [
 // Order here controls both tab order and, after flattening below,
 // deck index order in window.DECKS.
 window.DECK_GROUPS = [
-  { label: "LiveKit", decks: LIVEKIT_DECKS },
-  { label: "Deepgram Research", decks: DEEPGRAM_RESEARCH_DECKS },
-  { label: "Deepgram", decks: DEEPGRAM_DECKS },
+  { label: "Deepgram (model eval)", decks: DEEPGRAM_DECKS },
   { label: "Nebius", decks: NEBIUS_DECKS },
   { label: "Service Titan", decks: SERVICE_TITAN_DECKS },
-  { label: "Coding Review", decks: CODING_REVIEW_DECKS }
+  { label: "Coding Review", decks: CODING_REVIEW_DECKS },
+  { label: "LiveKit", decks: LIVEKIT_DECKS },
+  { label: "Deepgram (research)", decks: DEEPGRAM_RESEARCH_DECKS },
 ];
 
 // Flat list of every deck, derived from DECK_GROUPS above. app.js uses

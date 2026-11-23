@@ -22,15 +22,13 @@ const LIVEKIT_AI_WORKFLOW_DECK = {
     {
       question: "Why did you pick gpt-oss:20b?",
       answer:
-        "- free\n" +
+        "- free" +
         "- Mac compatible\n"
     },
     {
-      question: "Where do your AI workflow's agents run?",
+      question: "How do your AI workflow's agents run?",
       answer:
-        "- Disposable clone of my repo\n" +
-        "- One Docker container per session\n" +
-        "- Internal network, no internet"
+        "- Docker container + repo clone + no internet"
     },
     {
       question: "Describe the 6 stages in your AI workflow? (PPAIRC)",
@@ -43,15 +41,9 @@ const LIVEKIT_AI_WORKFLOW_DECK = {
         "commit (I git apply)"
     },
     {
-      question: "How does a change to the plan get applied in your workflow?",
-      answer:
-        "I send a follow-up prompt in the same Aider chat"
-    },
-    {
       question: "What stops endless loops in your AI workflow?",
       answer:
-        "- Aider caps its auto-fix retries\n" +
-        "- Each new turn needs my prompt"
+        "- A limit on model calls"
     },
     {
       question: "How does a model differ from an agent?",
@@ -61,14 +53,14 @@ const LIVEKIT_AI_WORKFLOW_DECK = {
     {
       question: "How do your workflow's containers reach the model w/o network?",
       answer:
-        "- Internal Docker network, proxy is only exit\n" +
-        "- Proxy allows 1 model, 2 chat routes"
+        "- Internal Docker network"
     },
     {
-      question: "Why hand-roll your AI workflow instead of using a sandbox like Fence?",
+      question: "What is the security difference between your AI workflow and Fence?",
       answer:
-        "- Stricter threat model:\n" +
-        "- FORBIDDEN: localhost/direct repo edits/env vars"
+        "- No localhost\n" +
+        "- No permanent repo writes\n" +
+        "- No env vars"
     },
   ]
 };

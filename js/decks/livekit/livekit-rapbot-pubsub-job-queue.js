@@ -3,18 +3,13 @@ const LIVEKIT_RAPBOT_DECK = {
   randomShuffle: false,
   cards: [
     {
-      question: "What was rapBot?",
-      answer:
-        "- App that turned user lyrics into rap songs\n"
-    },
-    {
       question: "What broke in rapBot's song generation in production?",
       answer: "- 10% of song requests failed w/ 502 Bad Gateway"
     },
     {
       question: "How did you find rapBot's 502 errors?",
       answer:
-        "- Monitoring caught them in prod\n"
+        "- App sent an alert to a Slack channel via webhook\n"
     },
     {
       question: "Why did rapBot's 502 bug reach production?",
@@ -23,12 +18,12 @@ const LIVEKIT_RAPBOT_DECK = {
     {
       question: "What caused rapBot's 502 errors?",
       answer:
-        "Cold start time plus inference time outlasted RunPod’s 90s synchronous timeout"
+        "cold_start_duration + inference_duration > RUNPOD_SYNC_TIMEOUT"
     },
     {
       question: "What was the stopgap for rapBot's 502 errors?",
       answer:
-        "- Keep workers warm longer by raising serverless GPU's idle timeout"
+        "- Raise serverless GPU's idle timeout to keep workers warm longer"
     },
     {
       question: "Why wasn't raising rapBot's idle timeout enough?",
@@ -38,21 +33,20 @@ const LIVEKIT_RAPBOT_DECK = {
     {
       question: "How did rapBot's job queue fix the 502 errors?",
       answer:
-        "1. API server inserts job, browser gets 202\n" +
-        "2. API server polls waiting jobs, sends to GPU worker\n" +
-        "3. GPU worker replies 202, uploads audio\n" +
-        "4. GPU worker marks job completed w/ signedUrl\n" +
-        "5. API server polls completed, pushes via message broker"
+        "- API server inserts job & returns 202\n" +
+        "- API server polls waiting jobs & sends to worker\n" +
+        "- GPU worker replies 202 & uploads audio\n" +
+        "- GPU worker marks job completed w/ signedUrl\n" +
+        "- API server polls completed jobs & pushes via message broker"
     },
     {
       question: "How did you prevent this problem from happening in the future?",
-      answer: "- We added automated e2e tests that always used cold GPUs"
+      answer: "- e2e tests that use cold GPUs"
     },
     {
       question: "Why is polling rapBot's jobs table OK?",
       answer:
-        "- Each check returns in ms\n" +
-        "- GPU time is expensive, short network requests are not"
+        "- Polling requests are short & cheap (unlike GPU time)"
     },
     {
       question: "Why didn't rapBot use Postgres NOTIFY?",
@@ -62,26 +56,27 @@ const LIVEKIT_RAPBOT_DECK = {
     {
       question: "Why did rapBot use pg-boss over a queue service?",
       answer:
-        "- Small volume + already had Postgres\n"
+        "- Small volume\n" +
+        "- Already had Postgres\n"
     },
     {
       question: "What do HTTP 200, 201, and 202 mean?",
       answer:
         "200 --> done\n" +
         "201 --> created\n" +
-        "202 --> accepted + working"
+        "202 --> accepted"
     },
     {
       question: "What happens if rapBot's API server goes down?",
       answer:
         "- Open event streams lost\n" +
         "- EventSource reconnects itself\n" +
-        "- Results safe in job rows, resent"
+        "- Results safe in job rows"
     },
     {
-      question: "What would you change in rapBot today?",
+      question: "What future optimizations do you have planned?",
       answer:
-        "- Resolve the 3% by splitting large lyrics requests and stitching them together after"
+        "- Split up large lyrics requests and stitch them together"
     },
     {
       question: "What is a job queue?",

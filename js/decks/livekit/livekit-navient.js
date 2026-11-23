@@ -38,7 +38,7 @@ const LIVEKIT_NAVIENT_DECK = {
     },
     {
       question: "Why were Navient payments a fast follow?",
-      answer: "- It requried extended cybersecurity review"
+      answer: "- It required extended cybersecurity review"
     },
     {
       question: "What technical problem did you explain to non-technical Navient staff?",
