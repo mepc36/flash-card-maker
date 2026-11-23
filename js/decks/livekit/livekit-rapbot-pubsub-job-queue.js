@@ -26,27 +26,18 @@ const LIVEKIT_RAPBOT_DECK = {
         "- Raise serverless GPU's idle timeout to keep workers warm longer"
     },
     {
-      question: "Why wasn't raising rapBot's idle timeout enough?",
-      answer:
-        "- First cold request still errored"
-    },
-    {
       question: "How did rapBot's job queue fix the 502 errors?",
       answer:
-        "- API server inserts job & returns 202\n" +
-        "- API server polls waiting jobs & sends to worker\n" +
-        "- GPU worker replies 202 & uploads audio\n" +
-        "- GPU worker marks job completed w/ signedUrl\n" +
-        "- API server polls completed jobs & pushes via message broker"
+        "- By relying on async events, not synchronous requests"
     },
     {
       question: "How did you prevent this problem from happening in the future?",
-      answer: "- e2e tests that use cold GPUs"
+      answer: "- New e2e tests that use cold GPUs"
     },
     {
-      question: "Why is polling rapBot's jobs table OK?",
+      question: "Why are polling requests to rapBot's jobs table OK?",
       answer:
-        "- Polling requests are short & cheap (unlike GPU time)"
+        "- They're short & cheap (unlike GPU time)"
     },
     {
       question: "Why didn't rapBot use Postgres NOTIFY?",
@@ -62,35 +53,32 @@ const LIVEKIT_RAPBOT_DECK = {
     {
       question: "What do HTTP 200, 201, and 202 mean?",
       answer:
-        "200 --> done\n" +
+        "200 --> OK\n" +
         "201 --> created\n" +
         "202 --> accepted"
     },
     {
-      question: "What happens if rapBot's API server goes down?",
+      question: "How do you recover if rapBot's API server goes down?",
       answer:
-        "- Open event streams lost\n" +
-        "- EventSource reconnects itself\n" +
-        "- Results safe in job rows"
+        "- Read results in jobs table"
     },
     {
-      question: "What future optimizations do you have planned?",
+      question: "How will you fix the remaining 3% of lyrics requests that fail?",
       answer:
         "- Split up large lyrics requests and stitch them together"
     },
     {
-      question: "What is a job queue?",
+      question: "What are the parts of a job queue?",
       answer:
-        "A job queue is a list of pending work items kept in storage, such as a database table or a broker.\n" +
-        "Producers add jobs to the list, and workers remove them.\n" +
-        "In rapBot, the job queue was the jobs table in Postgres, managed by pg-boss."
+        "queue --> holds jobs --> table\n" +
+        "producer --> creates jobs --> API table\n" +
+        "worker --> finishes jobs --> GPU"
     },
     {
       question: "What are the parts of a pub/sub pattern?",
       answer:
-        "publisher --> API server\n" +
-        "Subscriber --> Browser\n" +
-        "Server sent events --> pgboss + server sent events"
+        "publisher --> broadcaster --> API server\n" +
+        "subscriber --> listener --> Browser"
     },
     {
       question: "What is plain polling?",
